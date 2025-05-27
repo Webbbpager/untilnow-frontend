@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Hasta dónde leíste? Resumen de libro – personalizado y sin spoilers | UntilNow</title>
-    <meta name="description" content="Crea un resumen personalizado y sin spoilers para cualquier libro – de capítulo a capítulo, como prefieras. ¡Vuelve a ponerte al día rápidamente con UntilNow!">
-    <meta name="keywords" content="resumen de libro, sin spoilers, capítulo, personalizado, resumen libro, hasta dónde leíste, UntilNow">
-    
-    <link rel="canonical" href="https://deinedomain.de/static/es/book.html" />
-    <link rel="alternate" hreflang="de" href="https://deinedomain.de/static/book.html" />
-    <link rel="alternate" hreflang="en" href="https://deinedomain.de/static/en/book.html" />
-    <link rel="alternate" hreflang="es" href="https://deinedomain.de/static/es/book.html" />
-    <link rel="alternate" hreflang="fr" href="https://deinedomain.de/static/fr/book.html" />
-    <link rel="alternate" hreflang="x-default" href="https://deinedomain.de/static/book.html" />
+    <title>¿Dónde te quedaste? Resumen de libro – personalizado y sin spoilers | UntilNow</title>
+    <meta name="description" content="Crea un resumen personalizado y sin spoilers para cualquier libro, capítulo por capítulo, como tú elijas. ¡Ponte al día rápido con UntilNow!">
+    <meta name="keywords" content="resumen de libro, sin spoilers, capítulo, personalizado, resumen libro, dónde te quedaste, UntilNow">
+
+    <link rel="canonical" href="https://untilnow.xyz/static/es/book.html" />
+    <link rel="alternate" hreflang="de" href="https://untilnow.xyz/static/book.html" />
+    <link rel="alternate" hreflang="en" href="https://untilnow.xyz/static/en/book.html" />
+    <link rel="alternate" hreflang="es" href="https://untilnow.xyz/static/es/book.html" />
+    <link rel="alternate" hreflang="fr" href="https://untilnow.xyz/static/fr/book.html" />
+    <link rel="alternate" hreflang="x-default" href="https://untilnow.xyz/static/book.html" />
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
-    <meta property="og:title" content="¿Hasta dónde leíste? Resumen de libro – personalizado y sin spoilers">
-    <meta property="og:description" content="Resúmenes de libros personalizados y sin spoilers – elige qué capítulos resumir.">
-    <meta property="og:url" content="https://deinedomain.de/static/es/book.html">
-    <meta property="og:image" content="https://deinedomain.de/static/untilnow-banner.png">
+    <meta property="og:title" content="¿Dónde te quedaste? Resumen de libro – personalizado y sin spoilers">
+    <meta property="og:description" content="Resúmenes de libros personalizados y sin spoilers – selecciona los capítulos a resumir.">
+    <meta property="og:url" content="https://untilnow.xyz/static/es/book.html">
+    <meta property="og:image" content="https://untilnow.xyz/static/untilnow-banner.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Resumen de libro – personalizado y sin spoilers | UntilNow">
-    <meta name="twitter:description" content="¿Hasta dónde leíste? ¡Crea tu resumen de libro sin spoilers!">
+    <meta name="twitter:description" content="¿Dónde te quedaste? ¡Crea tu propio resumen de libro sin spoilers!">
 
     <link rel="icon" href="{% static 'faviUntilNow.png' %}" type="image/png">
-
     <link rel="stylesheet" href="/static/style.css">
     <style>
         body { max-width: 540px; margin: 0 auto; padding: 2em; background: #fafbfc; position:relative;}
@@ -71,7 +70,7 @@
 </head>
 <body>
     <div class="topbar">
-        <a href="/static/index.html" id="backBtn" title="Zurück">&#8592;</a>
+        <a href="/static/index.html" id="backBtn" title="Volver">&#8592;</a>
         <div id="lang-menu">
             <span id="lang-btn">🌐</span>
         </div>
@@ -85,61 +84,61 @@
         </div>
     </div>
 
-    <h1 id="header">📚 Buch-Zusammenfassung</h1>
+    <h1 id="header">📚 Resumen de libro</h1>
     <div class="input-row">
-        <label id="inputLabel" for="title">📖 <span id="inputPlaceholder">Buchtitel eingeben</span></label>
+        <label id="inputLabel" for="title">📖 <span id="inputPlaceholder">Introduce el título del libro</span></label>
         <input type="text" id="title" autocomplete="off">
     </div>
     <div class="input-row">
-        <label id="authorLabel" for="author">👤 <span id="authorPlaceholder">Autor (optional)</span></label>
+        <label id="authorLabel" for="author">👤 <span id="authorPlaceholder">Autor (opcional)</span></label>
         <input type="text" id="author" autocomplete="off">
     </div>
     <div class="input-row">
-        <label id="detailLabel">🔍 <span id="detailText">Detailgrad</span></label>
+        <label id="detailLabel">🔍 <span id="detailText">Nivel de detalle</span></label>
         <select id="detail">
-            <option value="grob">📝 <span id="shortText">Kurz</span></option>
-            <option value="detailliert">📄 <span id="detailedText">Detailliert</span></option>
+            <option value="grob">📝 <span id="shortText">Breve</span></option>
+            <option value="detailliert">📄 <span id="detailedText">Detallado</span></option>
         </select>
     </div>
     <div class="input-row">
-        <label id="typeLabel">📚 <span id="typeText">Kapitel, Szene oder Seite</span></label>
+        <label id="typeLabel">📚 <span id="typeText">Capítulo, escena o página</span></label>
         <select id="unit">
-            <option value="Kapitel">Kapitel</option>
-            <option value="Szene">Szene</option>
-            <option value="Seite">Seite</option>
+            <option value="Kapitel">Capítulo</option>
+            <option value="Szene">Escena</option>
+            <option value="Seite">Página</option>
         </select>
-        <div id="unitHint" style="color:#666; font-size:0.98em; margin-top:0.3em;">Du kannst zum Beispiel "Kapitel 1-3", "Szene A-B" oder "Seite 10-20" angeben.</div>
+        <div id="unitHint" style="color:#666; font-size:0.98em; margin-top:0.3em;">Puedes poner, por ejemplo, "Capítulo 1-3", "Escena A-B" o "Página 10-20".</div>
     </div>
     <div class="input-row">
-        <label id="fromLabel" for="from">🔽 <span id="fromText">Von</span></label>
-        <input type="text" id="from" placeholder="1 / A / Anfang">
+        <label id="fromLabel" for="from">🔽 <span id="fromText">Desde</span></label>
+        <input type="text" id="from" placeholder="1 / A / Inicio">
     </div>
     <div class="input-row">
-        <label id="toLabel" for="to">🔼 <span id="toText">Bis</span></label>
-        <input type="text" id="to" placeholder="5 / B / Ende">
+        <label id="toLabel" for="to">🔼 <span id="toText">Hasta</span></label>
+        <input type="text" id="to" placeholder="5 / B / Final">
     </div>
     <div class="buy-btn-row" id="buyBtnRow">
         <button class="amazon-btn" id="amazonBtn" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="height:1.1em;">
-            <span id="amazonBtnText">Bei Amazon kaufen</span>
+            <span id="amazonBtnText">Comprar en Amazon</span>
         </button>
         <button class="thrift-btn" id="thriftBtn" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_of_Thriftbooks.svg" alt="ThriftBooks" style="height:1.3em; margin-right: 0.1em;">
-            <span id="thriftBtnText">Gebraucht kaufen</span>
+            <span id="thriftBtnText">Comprar usado</span>
         </button>
     </div>
 
-    <button class="main-btn" id="summaryBtn"><span id="summarizeText">🧠 Zusammenfassung erstellen</span> <span id="summarizeSpinner" style="display:none;" class="spinner"></span></button>
+    <button class="main-btn" id="summaryBtn"><span id="summarizeText">🧠 Crear resumen</span> <span id="summarizeSpinner" style="display:none;" class="spinner"></span></button>
     <div id="noResult" style="color:#b22; margin-top:1em; display:none; font-weight:bold;"></div>
     <div id="summarySection" style="margin-top:2em; display:none;">
-        <h2 id="summaryLabel">📝 Zusammenfassung</h2>
+        <h2 id="summaryLabel">📝 Resumen</h2>
         <div id="summaryTextResult"></div>
-        <button class="main-btn" id="ttsBtn" style="width:auto;"><span id="ttsText">🔊 Vorlesen</span> <span id="ttsSpinner" style="display:none;" class="spinner"></span></button>
+        <button class="main-btn" id="ttsBtn" style="width:auto;"><span id="ttsText">🔊 Leer en voz alta</span> <span id="ttsSpinner" style="display:none;" class="spinner"></span></button>
     </div>
     <div class="powered">📌 Powered by Gemini, Google Books & gTTS</div>
 
     <script>
-        // Übersetzungen
+        // Traducciones
         const texts = {
             header: {
                 de: "📚 Buch-Zusammenfassung", en: "📚 Book Summary", es: "📚 Resumen de libro", fr: "📚 Résumé de livre"
@@ -162,14 +161,12 @@
             type: {
                 de: "Kapitel, Szene oder Seite", en: "Chapter, scene or page", es: "Capítulo, escena o página", fr: "Chapitre, scène ou page"
             },
-            // Einheiten für Dropdown
             unit: {
                 de: {Kapitel:"Kapitel", Szene:"Szene", Seite:"Seite"},
                 en: {Kapitel:"Chapter", Szene:"Scene", Seite:"Page"},
                 es: {Kapitel:"Capítulo", Szene:"Escena", Seite:"Página"},
                 fr: {Kapitel:"Chapitre", Szene:"Scène", Seite:"Page"}
             },
-            // NEU: Platzhalter für Von/Bis
             range_placeholder: {
                 de: {from: "1 / A / Anfang", to: "5 / B / Ende"},
                 en: {from: "1 / A / Start",  to: "5 / B / End"},
@@ -208,14 +205,13 @@
             }
         };
 
-        // Sprache aus Session oder Default
         let langFromPath = "de";
         if (location.pathname.includes("/en/")) langFromPath = "en";
         else if (location.pathname.includes("/es/")) langFromPath = "es";
         else if (location.pathname.includes("/fr/")) langFromPath = "fr";
 
         setLanguage(langFromPath);
-        sessionStorage.setItem('lang', langFromPath); // aktualisiere den Speicher
+        sessionStorage.setItem('lang', langFromPath);
         function setLanguage(lang) {
             currentLang = lang;
             sessionStorage.setItem('lang', lang);
@@ -228,7 +224,6 @@
             document.querySelector("#detail option[value='detailliert']").innerText = "📄 " + texts.detailed[lang];
             document.getElementById("typeLabel").innerText = "📚 " + texts.type[lang];
 
-            // Dropdown-Einheiten übersetzen
             let unitMap = texts.unit[lang];
             let unitSelect = document.getElementById("unit");
             unitSelect.querySelector("option[value='Kapitel']").innerText = unitMap.Kapitel;
@@ -237,7 +232,7 @@
 
             document.getElementById("fromLabel").innerText = "🔽 " + texts.from[lang];
             document.getElementById("toLabel").innerText = "🔼 " + texts.to[lang];
-            // NEU: Placeholder für Von/Bis
+
             document.getElementById("from").placeholder = texts.range_placeholder[lang].from;
             document.getElementById("to").placeholder = texts.range_placeholder[lang].to;
 
@@ -249,7 +244,6 @@
             document.getElementById("thriftBtnText").innerText = texts.thrift[lang];
         }
 
-        // Sprachauswahl Menü mittig als Modal (wie Video-UI)
         document.getElementById('lang-btn').onclick = () => {
             let bg = document.getElementById('lang-modal-bg');
             let dd = document.getElementById('lang-dropdown');
@@ -268,7 +262,6 @@
         };
         setLanguage(currentLang);
 
-        // Affiliate-Links
         function makeAmazonUrl(title, author) {
             let query = (title + (author ? " " + author : "")).replace(/ /g, "+");
             return "https://www.amazon.de/s?k=" + encodeURIComponent(query);
@@ -290,10 +283,8 @@
         }
         document.getElementById("title").addEventListener("input", updateAffiliateLinks);
         document.getElementById("author").addEventListener("input", updateAffiliateLinks);
-        // Initial einmal setzen
         updateAffiliateLinks();
 
-        // Zusammenfassung-Button
         document.getElementById("summaryBtn").onclick = async function() {
             let title = document.getElementById("title").value.trim();
             let author = document.getElementById("author").value.trim();
@@ -310,14 +301,13 @@
             document.getElementById("summaryBtn").disabled = true;
             document.getElementById("summarizeSpinner").style.display = "inline-block";
 
-            // Keine Buch-API mehr nötig; Prompt kann direkt gebaut werden!
             let promptReq = {
                 title,
                 author,
                 detail,
                 custom_from,
                 custom_to,
-                description: "", // leer lassen, da keine Datenbank
+                description: "",
                 lang: currentLang,
                 unit
             };
@@ -328,7 +318,6 @@
             });
             let promptData = await promptRes.json();
 
-            // Zusammenfassen
             let sumRes = await fetch('/api/summarize_text', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
@@ -344,7 +333,6 @@
             document.getElementById("summarizeText").style.display = "inline";
         };
 
-        // TTS
         document.getElementById("ttsBtn").onclick = async function() {
             let text = document.getElementById("summaryTextResult").innerText;
             document.getElementById("ttsText").style.display = "none";
@@ -370,7 +358,6 @@
             }
         };
 
-        // Felder aus Session vorbefüllen, falls vorhanden
         window.onload = () => {
             let query = sessionStorage.getItem("selected_query") || "";
             if (query) document.getElementById("title").value = query;
@@ -379,14 +366,14 @@
         };
 
         document.querySelectorAll('#lang-dropdown div').forEach((el) => {
-        el.onclick = () => {
-            let lang = el.dataset.lang;
-            let file = location.pathname.endsWith('video.html') ? 'video.html' : 'book.html';
-            let path = "/static/";
-            let langPath = (lang === "de") ? path : path + lang + "/";
-            window.location.href = langPath + file;
-        }
-    });
+            el.onclick = () => {
+                let lang = el.dataset.lang;
+                let file = location.pathname.endsWith('video.html') ? 'video.html' : 'book.html';
+                let path = "/static/";
+                let langPath = (lang === "de") ? path : path + lang + "/";
+                window.location.href = langPath + file;
+            }
+        });
     </script>
 </body>
 </html>
