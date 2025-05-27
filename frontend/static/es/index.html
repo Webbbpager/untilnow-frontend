@@ -6,7 +6,6 @@
     <title>UntilNow – Resúmenes personalizados de libros, series y películas (sin spoilers)</title>
     <meta name="description" content="Con UntilNow, obtén resúmenes personalizados y sin spoilers de libros, series y películas. Elige desde dónde hasta dónde – vuelve a ponerte al día rápidamente, sin spoilers.">
     <meta name="keywords" content="resumen, resumen de libros, resumen de series, resumen de películas, sin spoilers, personalizado, capítulo, escena, página, UntilNow">
-
     <link rel="canonical" href="https://deinedomain.de/static/es/index.html" />
     <link rel="alternate" hreflang="de" href="https://deinedomain.de/static/index.html" />
     <link rel="alternate" hreflang="en" href="https://deinedomain.de/static/en/index.html" />
@@ -20,174 +19,43 @@
     <meta property="og:description" content="Crea resúmenes personalizados para libros, películas y series – elige tú mismo desde dónde hasta dónde. Rápido, gratis y sin spoilers.">
     <meta property="og:url" content="https://deinedomain.de/static/es/index.html">
     <meta property="og:image" content="https://deinedomain.de/static/untilnow-banner.png">
-
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="UntilNow – Resúmenes personalizados sin spoilers">
     <meta name="twitter:description" content="Tú decides desde dónde hasta dónde se resume – ¡sin spoilers!">
 
     <link rel="icon" href="{% static 'faviUntilNow.png' %}" type="image/png">
-
     <link rel="stylesheet" href="/static/style.css">
 
     <style>
-        body { 
-            max-width: 540px; 
-            margin: 0 auto; 
-            padding: 2em; 
-            background: #fafbfc; 
-            position: relative;
-            min-height: 100vh;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-        }
-        .header-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            margin-bottom: 0em;
-            min-height: 66px;
-        }
-        #lang-menu {
-            position: absolute;
-            right: 0;
-            top: 0;
-            z-index: 5;
-        }
-        .untilnow-logo {
-            max-height: 50px;
-            max-width: 300px;
-            margin: 0 auto;
-            display: block;
-            filter: drop-shadow(0 2px 12px #0005);
-        }
-        .main-btn { 
-            padding: 1em 2em; 
-            font-size: 1.5em; 
-            border-radius: 12px; 
-            margin: 1em 0.3em 1em 0; 
-            cursor: pointer; 
-            border: none; 
-            width: 46%; 
-            min-width: 160px; 
-        }
-        .main-btn-row { 
-            display: flex; 
-            gap: 0.7em; 
-            margin-bottom: 2em; 
-            flex-wrap: wrap; 
-        }
-        .trending { margin-top: 1.5em; }
-        .trending-list { margin-bottom: 2em; }
-        .trending-item { 
-            display: flex; 
-            align-items: center; 
-            gap: 1em; 
-            background: #eef1f5; 
-            border-radius: 8px; 
-            padding: 0.6em 1em; 
-            margin: 0.4em 0; 
-            border: none; 
-            cursor: pointer; 
-            font-size: 1em; 
-        }
-        .cover-img { 
-            width: 48px; 
-            height: 70px; 
-            object-fit: cover; 
-            border-radius: 6px; 
-            box-shadow: 0 2px 6px #0001; 
-            background: #ddd; 
-        }
-        .powered { 
-            font-size: 0.9em; 
-            color: #aaa; 
-            margin-top: 3em; 
-            text-align: right; 
-        }
-        #lang-modal-bg {
-            display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.25); z-index:99; justify-content:center; align-items:center;
-        }
-        #lang-dropdown {
-            display: none; 
-            position:relative; 
-            min-width:220px; 
-            background: white; 
-            border: 1px solid #ddd; 
-            border-radius: 13px; 
-            box-shadow: 0 8px 24px #0001;
-            padding:0.7em 0; 
-            font-size:1.2em;
-            animation:pop 0.14s cubic-bezier(.46,.53,.55,.96);
-        }
-        #lang-dropdown div { 
-            padding: 0.7em 1.7em; 
-            cursor: pointer;
-        }
-        #lang-dropdown div:hover { background: #eef3fa; }
-        @keyframes pop { 
-            0% { transform:scale(0.6); opacity:0.4 } 
-            100% { transform:scale(1); opacity:1; } 
-        }
-        .affiliate-footer-row {
-            display: flex;
-            gap: 0.8em;
-            margin-top: 2.5em;
-            margin-bottom: 0.1em;
-            width: 100%;
-        }
-        .affiliate-card {
-            flex: 1 1 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #e5eaf4;
-            border-radius: 13px;
-            padding: 1.1em 0.5em 1.2em 0.5em;
-            text-align: center;
-            box-shadow: 0 2px 10px #2266bb12;
-            border: 1px solid #dbe3ec;
-            cursor: pointer;
-            transition: box-shadow 0.18s, background 0.18s;
-            min-width: 0;
-        }
-        .affiliate-card:hover { 
-            background: #d0e4fa; 
-            box-shadow: 0 4px 20px #2266bb24; 
-        }
-        .affiliate-label { 
-            font-size: 1.08em; 
-            font-weight: bold; 
-            margin-top: 0.5em;
-            color: #13356a;
-        }
-        .prime-logo {
-            height: 2em;
-            margin-bottom: 0.3em;
-        }
-        .amazon-logo {
-            height: 2em;
-            margin-bottom: 0.3em;
-        }
-        .thrift-logo {
-            height: 2.1em;
-            margin-bottom: 0.3em;
-        }
-        @media (max-width: 600px) {
-            body { padding: 0.8em; }
-            .main-btn-row { flex-direction: column; gap: 0.8em; }
-            .main-btn { width: 100%; min-width: unset;}
-            .affiliate-footer-row { flex-direction: column; gap: 0.9em; }
-            .untilnow-logo { max-width: 95vw; max-height: 48px; }
-            .header-row { min-height: 48px; }
-        }
+        body { max-width: 540px; margin: 0 auto; padding: 2em; background: #fafbfc; position: relative; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column;}
+        .header-row {display: flex;align-items: center;justify-content: center;position: relative;margin-bottom: 0em;min-height: 66px;}
+        #lang-menu {position: absolute;right: 0;top: 0;z-index: 5;}
+        .untilnow-logo {max-height: 50px;max-width: 300px;margin: 0 auto;display: block;filter: drop-shadow(0 2px 12px #0005);}
+        .main-btn {padding: 1em 2em;font-size: 1.5em;border-radius: 12px;margin: 1em 0.3em 1em 0;cursor: pointer;border: none;width: 46%;min-width: 160px;}
+        .main-btn-row {display: flex;gap: 0.7em;margin-bottom: 2em;flex-wrap: wrap;}
+        .trending {margin-top: 1.5em;}
+        .trending-list {margin-bottom: 2em;}
+        .trending-item {display: flex;align-items: center;gap: 1em;background: #eef1f5;border-radius: 8px;padding: 0.6em 1em;margin: 0.4em 0;border: none;cursor: pointer;font-size: 1em;}
+        .cover-img {width: 48px;height: 70px;object-fit: cover;border-radius: 6px;box-shadow: 0 2px 6px #0001;background: #ddd;}
+        .powered {font-size: 0.9em;color: #aaa;margin-top: 3em;text-align: right;}
+        #lang-modal-bg {display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.25); z-index:99; justify-content:center; align-items:center;}
+        #lang-dropdown {display: none; position:relative; min-width:220px; background: white; border: 1px solid #ddd; border-radius: 13px; box-shadow: 0 8px 24px #0001; padding:0.7em 0; font-size:1.2em; animation:pop 0.14s cubic-bezier(.46,.53,.55,.96);}
+        #lang-dropdown div { padding: 0.7em 1.7em; cursor: pointer;}
+        #lang-dropdown div:hover { background: #eef3fa;}
+        @keyframes pop {0% { transform:scale(0.6); opacity:0.4 } 100% { transform:scale(1); opacity:1; } }
+        .affiliate-footer-row {display: flex;gap: 0.8em;margin-top: 2.5em;margin-bottom: 0.1em;width: 100%;}
+        .affiliate-card {flex: 1 1 0;display: flex;flex-direction: column;align-items: center;justify-content: center;background: #e5eaf4;border-radius: 13px;padding: 1.1em 0.5em 1.2em 0.5em;text-align: center;box-shadow: 0 2px 10px #2266bb12;border: 1px solid #dbe3ec;cursor: pointer;transition: box-shadow 0.18s, background 0.18s;min-width: 0;}
+        .affiliate-card:hover { background: #d0e4fa; box-shadow: 0 4px 20px #2266bb24;}
+        .affiliate-label { font-size: 1.08em; font-weight: bold; margin-top: 0.5em;color: #13356a;}
+        .prime-logo {height: 2em;margin-bottom: 0.3em;}
+        .amazon-logo {height: 2em;margin-bottom: 0.3em;}
+        .thrift-logo {height: 2.1em;margin-bottom: 0.3em;}
+        @media (max-width: 600px) {body { padding: 0.8em; }.main-btn-row { flex-direction: column; gap: 0.8em; }.main-btn { width: 100%; min-width: unset;}.affiliate-footer-row { flex-direction: column; gap: 0.9em; }.untilnow-logo { max-width: 95vw; max-height: 48px; }.header-row { min-height: 48px; }}
     </style>
 </head>
 <body>
     <div class="header-row">
-        <img src="/static/untilnow-logo.png" alt="UntilNow Logo – Spoilerfreie Zusammenfassungen" class="untilnow-logo">
+        <img src="/static/untilnow-logo.png" alt="UntilNow Logo – Sin spoilers" class="untilnow-logo">
         <div id="lang-menu">
             <span id="lang-btn">🌐</span>
         </div>
@@ -200,15 +68,13 @@
             <div data-lang="fr">🇫🇷 Français</div>
         </div>
     </div>
-
-    <h1 id="mainTitle">📚🎬 Was suchst du?</h1>
+    <h1 id="mainTitle">📚🎬 ¿Qué buscas?</h1>
     <div class="main-btn-row">
-        <button class="main-btn" id="movieBtn">🎬 Film/Serie</button>
-        <button class="main-btn" id="bookBtn">📖 Buch</button>
+        <button class="main-btn" id="movieBtn">🎬 Película/Serie</button>
+        <button class="main-btn" id="bookBtn">📖 Libro</button>
     </div>
-
     <div class="trending">
-        <h2 id="trendingTitle">📈 Aktuell beliebt</h2>
+        <h2 id="trendingTitle">📈 Populares ahora</h2>
         <div>
             <div id="videosLabel" style="font-weight:bold; margin-bottom:0.4em;"></div>
             <div id="trendingVideos" class="trending-list"></div>
@@ -218,25 +84,21 @@
             <div id="trendingBooks" class="trending-list"></div>
         </div>
     </div>
-
     <div class="powered">📌 Powered by Gemini, TMDB & Google Books</div>
-
-    <!-- Affiliate Footer -->
     <div class="affiliate-footer-row">
-        <div class="affiliate-card" onclick="window.open('https://www.amazon.de/prime?tag=DEIN_AFFILIATE_ID', '_blank')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_Logo.svg" class="prime-logo" alt="Prime Video – Werbung">
+        <div class="affiliate-card" onclick="window.open('https://www.amazon.es/prime?tag=DEIN_AFFILIATE_ID', '_blank')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_Logo.svg" class="prime-logo" alt="Prime Video – Publicidad">
             <div class="affiliate-label" id="primeLabel">Prime</div>
         </div>
-        <div class="affiliate-card" onclick="window.open('https://www.amazon.de/?tag=DEIN_AFFILIATE_ID', '_blank')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="amazon-logo" alt="Amazon – Werbung">
+        <div class="affiliate-card" onclick="window.open('https://www.amazon.es/?tag=DEIN_AFFILIATE_ID', '_blank')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="amazon-logo" alt="Amazon – Publicidad">
             <div class="affiliate-label" id="amazonLabel">Amazon</div>
         </div>
         <div class="affiliate-card" onclick="window.open('https://www.thriftbooks.com/?utm_source=affiliate&utm_medium=affiliate&utm_campaign=DEIN_AFFILIATE_ID', '_blank')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_of_Thriftbooks.svg" class="thrift-logo" alt="ThriftBooks – Werbung">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_of_Thriftbooks.svg" class="thrift-logo" alt="ThriftBooks – Publicidad">
             <div class="affiliate-label" id="thriftLabel">ThriftBooks</div>
         </div>
     </div>
-
     <script>
         // Übersetzungen
         const texts = {
@@ -277,16 +139,12 @@
                 fr: "🎬 Films et séries"
             }
         };
-
-        // Sprache aus Session oder Default
         let langFromPath = "de";
         if (location.pathname.includes("/en/")) langFromPath = "en";
         else if (location.pathname.includes("/es/")) langFromPath = "es";
         else if (location.pathname.includes("/fr/")) langFromPath = "fr";
-
         setLanguage(langFromPath);
-        sessionStorage.setItem('lang', langFromPath); // aktualisiere den Speicher
-
+        sessionStorage.setItem('lang', langFromPath);
         function setLanguage(lang) {
             currentLang = lang;
             sessionStorage.setItem('lang', lang);
@@ -298,8 +156,6 @@
             document.getElementById("videosLabel").innerText = texts.videos[lang];
             fetchTrending();
         }
-
-        // Sprachmenü als mittiges Modal
         document.getElementById('lang-btn').onclick = () => {
             let bg = document.getElementById('lang-modal-bg');
             let dd = document.getElementById('lang-dropdown');
@@ -314,15 +170,12 @@
             }
         });
         document.getElementById('lang-modal-bg').onclick = function(e){
-            if (e.target === this) { 
-                this.style.display = 'none'; 
-                document.getElementById('lang-dropdown').style.display = 'none'; 
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.getElementById('lang-dropdown').style.display = 'none';
             }
         };
-
-        // Trending laden & mit Coverbildern
         function fetchTrending() {
-            // Videos mit TMDB-Cover (jetzt zuerst)
             fetch(`/api/get_trending_movies_and_series?lang=${currentLang}`)
                 .then(r => r.json()).then(async videos => {
                     let el = document.getElementById("trendingVideos");
@@ -348,7 +201,6 @@
                         el.appendChild(btn);
                     }
                 });
-            // Bücher (jetzt unten)
             fetch(`/api/get_trending_books?lang=${currentLang}`)
                 .then(r => r.json()).then(books => {
                     let el = document.getElementById("trendingBooks");
@@ -362,7 +214,6 @@
                     });
                 });
         }
-
         function selectTrending(type, query) {
             sessionStorage.setItem("selected_type", type);
             sessionStorage.setItem("selected_query", query);
@@ -373,7 +224,6 @@
                 window.location.href = "/static/video.html";
             }
         }
-
         document.getElementById("movieBtn").onclick = () => {
             sessionStorage.setItem("selected_type", "video");
             sessionStorage.setItem("selected_query", "");
@@ -386,7 +236,6 @@
             sessionStorage.setItem("lang", currentLang);
             window.location.href = "/static/book.html";
         };
-
         setLanguage(currentLang);
     </script>
 </body>
