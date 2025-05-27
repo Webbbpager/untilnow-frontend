@@ -4,37 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO: Haupttitel & Beschreibung für Google -->
-    <title>UntilNow – Individuelle Zusammenfassungen für Bücher, Serien & Filme (ohne Spoiler)</title>
-    <meta name="description" content="Mit UntilNow erhältst du individuelle, spoilerfreie Zusammenfassungen für Bücher, Serien und Filme. Wähle selbst von wo bis wo – perfekt, um schnell wieder einzusteigen.">
+    <!-- SEO: Titel & Beschreibung -->
+    <title>UntilNow – Summaries for Books, Series & Movies (Spoiler-free)</title>
+    <meta name="description" content="With UntilNow you get custom, spoiler-free summaries for books, series and movies. Pick your own start and end point – perfect to quickly catch up.">
 
-    <!-- Keywords (optional) -->
-    <meta name="keywords" content="Zusammenfassung, Buch Zusammenfassung, Serie Zusammenfassung, Film Zusammenfassung, spoilerfrei, individuell, Kapitel, Szene, Seite, bis wohin, Without Spoilers, UntilNow">
+    <meta name="keywords" content="summary, book summary, series summary, movie summary, spoiler-free, custom, chapters, scenes, pages, until now, UntilNow">
 
-    <!-- OpenGraph für Social Media -->
+    <!-- OpenGraph & Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="de_DE">
-    <meta property="og:title" content="UntilNow – Individuelle Zusammenfassungen ohne Spoiler">
-    <meta property="og:description" content="Individuelle Zusammenfassungen für Bücher, Serien & Filme – von dir bestimmt, ohne Spoiler. Schnell, kostenlos, für alle Medien.">
-    <meta property="og:url" content="https://deinedomain.de/">
-    <meta property="og:image" content="https://deinedomain.de/static/untilnow-banner.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="UntilNow – Custom Summaries Without Spoilers">
+    <meta property="og:description" content="Custom summaries for books, series & movies – you choose how far. Fast, free, for all media.">
+    <meta property="og:url" content="https://untilnow.xyz/en/">
+    <meta property="og:image" content="https://untilnow.xyz/untilnow-banner.png">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UntilNow – Individuelle Zusammenfassungen für Bücher, Serien & Filme">
-    <meta name="twitter:description" content="Bestimme selbst, von wo bis wo zusammengefasst wird – ohne Spoiler!">
+    <meta name="twitter:title" content="UntilNow – Summaries for Books, Series & Movies">
+    <meta name="twitter:description" content="You choose how far to summarize – without spoilers!">
 
-    <!-- Canonical & hreflang für Google Multilingual SEO -->
-    <link rel="canonical" href="https://deinedomain.de/">
-    <link rel="alternate" hreflang="de" href="https://deinedomain.de/" />
-    <link rel="alternate" hreflang="en" href="https://deinedomain.de/en/" />
-    <link rel="alternate" hreflang="es" href="https://deinedomain.de/es/" />
-    <link rel="alternate" hreflang="fr" href="https://deinedomain.de/fr/" />
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href="https://untilnow.xyz/en/">
+    <link rel="alternate" hreflang="de" href="https://untilnow.xyz/" />
+    <link rel="alternate" hreflang="en" href="https://untilnow.xyz/en/" />
+    <link rel="alternate" hreflang="es" href="https://untilnow.xyz/es/" />
+    <link rel="alternate" hreflang="fr" href="https://untilnow.xyz/fr/" />
 
     <!-- Favicon & CSS -->
-    <link rel="icon" href="{% static 'faviUntilNow.png' %}" type="image/png">
-
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="../faviUntilNow.png" type="image/png">
+    <link rel="stylesheet" href="../style.css">
 
     <style>
         body { 
@@ -69,21 +67,30 @@
             display: block;
             filter: drop-shadow(0 2px 12px #0005);
         }
+        .main-btn-row { 
+            display: flex; 
+            flex-direction: row;
+            gap: 0.7em; 
+            margin-bottom: 2em; 
+            flex-wrap: wrap;
+        }
         .main-btn { 
             padding: 1em 2em; 
             font-size: 1.5em; 
             border-radius: 12px; 
-            margin: 1em 0.3em 1em 0; 
+            margin: 0; 
             cursor: pointer; 
             border: none; 
             width: 46%; 
-            min-width: 160px; 
+            min-width: 140px; 
+            box-sizing: border-box;
+            background: #eef1f5;
+            transition: background 0.16s, box-shadow 0.16s;
+            box-shadow: 0 2px 10px #0001;
         }
-        .main-btn-row { 
-            display: flex; 
-            gap: 0.7em; 
-            margin-bottom: 2em; 
-            flex-wrap: wrap; 
+        .main-btn:hover {
+            background: #d9e6f6;
+            box-shadow: 0 4px 18px #2266bb22;
         }
         .trending { margin-top: 1.5em; }
         .trending-list { margin-bottom: 2em; }
@@ -183,45 +190,65 @@
             margin-bottom: 0.3em;
         }
         @media (max-width: 600px) {
-            body { padding: 0.8em; }
-            .main-btn-row { flex-direction: column; gap: 0.8em; }
-            .main-btn { width: 100%; min-width: unset;}
+            body { padding: 1em; }
+            .main-btn-row { 
+                flex-direction: row !important;
+                gap: 0.5em !important;
+                margin-bottom: 1em !important;
+                flex-wrap: nowrap !important;
+                justify-content: center;
+            }
+            .main-btn {
+                width: 46% !important;
+                min-width: 80px !important;
+                font-size: 1.12em !important;
+                padding: 0.7em 0.2em !important;
+                margin: 0 !important;
+            }
             .affiliate-footer-row { flex-direction: column; gap: 0.9em; }
             .untilnow-logo { max-width: 95vw; max-height: 48px; }
             .header-row { min-height: 48px; }
+        }
+        @media (max-width: 420px) {
+            .main-btn {
+                font-size: 1em !important;
+                min-width: 50px !important;
+                padding: 0.6em 0.1em !important;
+            }
+            .main-btn-row { gap: 0.2em !important; }
         }
     </style>
 </head>
 <body>
     <div class="header-row">
-        <img src="/static/untilnow-logo.png" alt="UntilNow Logo – Spoilerfreie Zusammenfassungen" class="untilnow-logo">
+        <img src="../untilnow-logo.png" alt="UntilNow Logo – Spoiler Free Summaries" class="untilnow-logo">
         <div id="lang-menu">
             <span id="lang-btn">🌐</span>
         </div>
     </div>
     <div id="lang-modal-bg">
         <div id="lang-dropdown">
-            <div data-lang="de">🇩🇪 Deutsch</div>
-            <div data-lang="en">🇬🇧 English</div>
-            <div data-lang="es">🇪🇸 Español</div>
-            <div data-lang="fr">🇫🇷 Français</div>
+            <div onclick="goToLanguage('de')">🇩🇪 Deutsch</div>
+            <div onclick="goToLanguage('en')">🇬🇧 English</div>
+            <div onclick="goToLanguage('es')">🇪🇸 Español</div>
+            <div onclick="goToLanguage('fr')">🇫🇷 Français</div>
         </div>
     </div>
 
-    <h1 id="mainTitle">📚🎬 Was suchst du?</h1>
+    <h1 id="mainTitle">📚🎬 What are you looking for?</h1>
     <div class="main-btn-row">
-        <button class="main-btn" id="movieBtn">🎬 Film/Serie</button>
-        <button class="main-btn" id="bookBtn">📖 Buch</button>
+        <button class="main-btn" id="movieBtn">🎬 Movie/Series</button>
+        <button class="main-btn" id="bookBtn">📖 Book</button>
     </div>
 
     <div class="trending">
-        <h2 id="trendingTitle">📈 Aktuell beliebt</h2>
+        <h2 id="trendingTitle">📈 Trending Now</h2>
         <div>
-            <div id="videosLabel" style="font-weight:bold; margin-bottom:0.4em;"></div>
+            <div id="videosLabel" style="font-weight:bold; margin-bottom:0.4em;">🎬 Movies & Series</div>
             <div id="trendingVideos" class="trending-list"></div>
         </div>
         <div>
-            <div id="booksLabel" style="font-weight:bold; margin-bottom:0.4em;"></div>
+            <div id="booksLabel" style="font-weight:bold; margin-bottom:0.4em;">📚 Books</div>
             <div id="trendingBooks" class="trending-list"></div>
         </div>
     </div>
@@ -231,114 +258,50 @@
     <!-- Affiliate Footer -->
     <div class="affiliate-footer-row">
         <div class="affiliate-card" onclick="window.open('https://www.amazon.de/prime?tag=DEIN_AFFILIATE_ID', '_blank')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_Logo.svg" class="prime-logo" alt="Prime Video – Werbung">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_Logo.svg" class="prime-logo" alt="Prime Video – Ad">
             <div class="affiliate-label" id="primeLabel">Prime</div>
         </div>
         <div class="affiliate-card" onclick="window.open('https://www.amazon.de/?tag=DEIN_AFFILIATE_ID', '_blank')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="amazon-logo" alt="Amazon – Werbung">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="amazon-logo" alt="Amazon – Ad">
             <div class="affiliate-label" id="amazonLabel">Amazon</div>
         </div>
         <div class="affiliate-card" onclick="window.open('https://www.thriftbooks.com/?utm_source=affiliate&utm_medium=affiliate&utm_campaign=DEIN_AFFILIATE_ID', '_blank')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_of_Thriftbooks.svg" class="thrift-logo" alt="ThriftBooks – Werbung">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_of_Thriftbooks.svg" class="thrift-logo" alt="ThriftBooks – Ad">
             <div class="affiliate-label" id="thriftLabel">ThriftBooks</div>
         </div>
     </div>
 
     <script>
-        // Übersetzungen
-        const texts = {
-            title: {
-                de: "📚🎬 Was suchst du?",
-                en: "📚🎬 What are you looking for?",
-                es: "📚🎬 ¿Qué buscas?",
-                fr: "📚🎬 Que cherchez-vous ?"
-            },
-            book: {
-                de: "📖 Buch",
-                en: "📖 Book",
-                es: "📖 Libro",
-                fr: "📖 Livre"
-            },
-            movie: {
-                de: "🎬 Film/Serie",
-                en: "🎬 Movie/Series",
-                es: "🎬 Película/Serie",
-                fr: "🎬 Film/Série"
-            },
-            trending: {
-                de: "📈 Aktuell beliebt",
-                en: "📈 Trending Now",
-                es: "📈 Populares ahora",
-                fr: "📈 Tendance actuelle"
-            },
-            books: {
-                de: "📚 Bücher",
-                en: "📚 Books",
-                es: "📚 Libros",
-                fr: "📚 Livres"
-            },
-            videos: {
-                de: "🎬 Filme & Serien",
-                en: "🎬 Movies & Series",
-                es: "🎬 Películas y series",
-                fr: "🎬 Films et séries"
-            }
-        };
-
-        // Sprache aus Session oder Default
-        let langFromPath = "de";
-        if (location.pathname.includes("/en/")) langFromPath = "en";
-        else if (location.pathname.includes("/es/")) langFromPath = "es";
-        else if (location.pathname.includes("/fr/")) langFromPath = "fr";
-
-        setLanguage(langFromPath);
-        sessionStorage.setItem('lang', langFromPath); // aktualisiere den Speicher
-
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            sessionStorage.setItem('lang', lang);
-            document.getElementById("mainTitle").innerText = texts.title[lang];
-            document.getElementById("bookBtn").innerText = texts.book[lang];
-            document.getElementById("movieBtn").innerText = texts.movie[lang];
-            document.getElementById("trendingTitle").innerText = texts.trending[lang];
-            document.getElementById("booksLabel").innerText = texts.books[lang];
-            document.getElementById("videosLabel").innerText = texts.videos[lang];
-            fetchTrending();
+        // Language change navigation
+        function goToLanguage(lang) {
+            if (lang === 'de') window.location.href = "/index.html";
+            else window.location.href = "/" + lang + "/index.html";
         }
 
-        // Sprachmenü als mittiges Modal
-        document.getElementById('lang-btn').onclick = () => {
-            let bg = document.getElementById('lang-modal-bg');
-            let dd = document.getElementById('lang-dropdown');
-            bg.style.display = 'flex';
-            dd.style.display = 'block';
+        // Button actions
+        document.getElementById("movieBtn").onclick = () => {
+            sessionStorage.setItem("selected_type", "video");
+            sessionStorage.setItem("selected_query", "");
+            sessionStorage.setItem("lang", "en");
+            window.location.href = "video.html";
         };
-        document.querySelectorAll('#lang-dropdown div').forEach((el) => {
-            el.onclick = () => {
-                setLanguage(el.dataset.lang);
-                document.getElementById('lang-modal-bg').style.display = 'none';
-                document.getElementById('lang-dropdown').style.display = 'none';
-            }
-        });
-        document.getElementById('lang-modal-bg').onclick = function(e){
-            if (e.target === this) { 
-                this.style.display = 'none'; 
-                document.getElementById('lang-dropdown').style.display = 'none'; 
-            }
+        document.getElementById("bookBtn").onclick = () => {
+            sessionStorage.setItem("selected_type", "book");
+            sessionStorage.setItem("selected_query", "");
+            sessionStorage.setItem("lang", "en");
+            window.location.href = "book.html";
         };
 
-        // Trending laden & mit Coverbildern
+        // Trending
         function fetchTrending() {
-            // Videos mit TMDB-Cover (jetzt zuerst)
-            fetch(`/api/get_trending_movies_and_series?lang=${currentLang}`)
+            fetch(`/api/get_trending_movies_and_series?lang=en`)
                 .then(r => r.json()).then(async videos => {
                     let el = document.getElementById("trendingVideos");
                     el.innerHTML = "";
                     for (let title of videos) {
                         let img = '';
                         try {
-                            let r = await fetch(`/api/search_media?query=${encodeURIComponent(title)}&language=${currentLang}`);
+                            let r = await fetch(`/api/search_media?query=${encodeURIComponent(title)}&language=en`);
                             let res = await r.json();
                             let item = res[0];
                             if (item && item.poster_path) {
@@ -356,8 +319,7 @@
                         el.appendChild(btn);
                     }
                 });
-            // Bücher (jetzt unten)
-            fetch(`/api/get_trending_books?lang=${currentLang}`)
+            fetch(`/api/get_trending_books?lang=en`)
                 .then(r => r.json()).then(books => {
                     let el = document.getElementById("trendingBooks");
                     el.innerHTML = "";
@@ -370,32 +332,33 @@
                     });
                 });
         }
+        fetchTrending();
 
         function selectTrending(type, query) {
             sessionStorage.setItem("selected_type", type);
             sessionStorage.setItem("selected_query", query);
-            sessionStorage.setItem("lang", currentLang);
+            sessionStorage.setItem("lang", "en");
             if (type === "book") {
-                window.location.href = "/static/book.html";
+                window.location.href = "book.html";
             } else {
-                window.location.href = "/static/video.html";
+                window.location.href = "video.html";
             }
         }
 
-        document.getElementById("movieBtn").onclick = () => {
-            sessionStorage.setItem("selected_type", "video");
-            sessionStorage.setItem("selected_query", "");
-            sessionStorage.setItem("lang", currentLang);
-            window.location.href = "/static/video.html";
+        // Modal for language menu
+        document.getElementById('lang-btn').onclick = () => {
+            let bg = document.getElementById('lang-modal-bg');
+            let dd = document.getElementById('lang-dropdown');
+            bg.style.display = 'flex';
+            dd.style.display = 'block';
         };
-        document.getElementById("bookBtn").onclick = () => {
-            sessionStorage.setItem("selected_type", "book");
-            sessionStorage.setItem("selected_query", "");
-            sessionStorage.setItem("lang", currentLang);
-            window.location.href = "/static/book.html";
+        document.getElementById('lang-modal-bg').onclick = function(e){
+            if (e.target === this) { 
+                this.style.display = 'none'; 
+                document.getElementById('lang-dropdown').style.display = 'none'; 
+            }
         };
-
-        setLanguage(currentLang);
     </script>
 </body>
 </html>
+
