@@ -14,7 +14,7 @@
     <meta property="og:title" content="UntilNow – Individuelle Zusammenfassungen ohne Spoiler">
     <meta property="og:description" content="Individuelle Zusammenfassungen für Bücher, Serien & Filme – von dir bestimmt, ohne Spoiler. Schnell, kostenlos, für alle Medien.">
     <meta property="og:url" content="https://deinedomain.de/">
-    <meta property="og:image" content="https://deinedomain.de/static/untilnow-banner.png">
+    <meta property="og:image" content="https://deinedomain.de/untilnow-banner.png">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
@@ -30,9 +30,10 @@
 
     <!-- Favicon & CSS -->
     <link rel="icon" href="faviUntilNow.png" type="image/png">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="style.css">
 
     <style>
+        /* Dein vorhandenes Style bleibt unverändert */
         body { 
             max-width: 540px; 
             margin: 0 auto; 
@@ -395,9 +396,9 @@
             sessionStorage.setItem("selected_query", query);
             sessionStorage.setItem("lang", currentLang);
             if (type === "book") {
-                window.location.href = "/static/book.html";
+                window.location.href = "book.html";
             } else {
-                window.location.href = "/static/video.html";
+                window.location.href = "video.html";
             }
         }
 
@@ -405,13 +406,13 @@
             sessionStorage.setItem("selected_type", "video");
             sessionStorage.setItem("selected_query", "");
             sessionStorage.setItem("lang", currentLang);
-            window.location.href = "/static/video.html";
+            window.location.href = "video.html";
         };
         document.getElementById("bookBtn").onclick = () => {
             sessionStorage.setItem("selected_type", "book");
             sessionStorage.setItem("selected_query", "");
             sessionStorage.setItem("lang", currentLang);
-            window.location.href = "/static/book.html";
+            window.location.href = "book.html";
         };
 
         setLanguage(currentLang);
