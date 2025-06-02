@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>UntilNow – Résumés personnalisés de livres, séries et films (sans spoilers)</title>
-    <meta name="description" content="Avec UntilNow, obtenez des résumés personnalisés et sans spoilers de livres, séries et films. Choisissez vous-même de où à où – parfait pour reprendre rapidement.">
-    <meta name="keywords" content="Résumé, résumé de livre, résumé de série, résumé de film, sans spoilers, personnalisé, chapitre, scène, page, jusqu'où, UntilNow">
+    <!-- SEO: Titre & Description -->
+    <title>UntilNow – Résumés de livres, séries & films (sans spoilers)</title>
+    <meta name="description" content="Avec UntilNow, obtenez des résumés personnalisés et sans spoilers pour livres, séries et films. Choisissez le point de départ et de fin – parfait pour reprendre rapidement.">
+    <meta name="keywords" content="résumé, résumé de livre, résumé de série, résumé de film, sans spoilers, personnalisé, chapitres, scènes, pages, until now, UntilNow">
 
     <!-- OpenGraph & Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:title" content="UntilNow – Résumés personnalisés sans spoilers">
-    <meta property="og:description" content="Résumés personnalisés pour livres, séries et films – vous choisissez la plage, sans spoilers. Rapide, gratuit, pour tous les médias.">
+    <meta property="og:description" content="Résumés personnalisés pour livres, séries & films – vous choisissez jusqu'où. Rapide, gratuit, pour tous les médias.">
     <meta property="og:url" content="https://untilnow.xyz/fr/">
     <meta property="og:image" content="https://untilnow.xyz/untilnow-banner.png">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UntilNow – Résumés personnalisés de livres, séries et films">
-    <meta name="twitter:description" content="Décidez vous-même de où à où résumer – sans spoilers !">
+    <meta name="twitter:title" content="UntilNow – Résumés de livres, séries & films">
+    <meta name="twitter:description" content="Vous choisissez jusqu'où résumer – sans spoilers !">
 
     <!-- Canonical & hreflang -->
     <link rel="canonical" href="https://untilnow.xyz/fr/">
@@ -29,362 +30,329 @@
     <link rel="alternate" hreflang="fr" href="https://untilnow.xyz/fr/" />
 
     <!-- Favicon & CSS -->
-    <link rel="icon" href="faviUntilNow.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../faviUntilNow.png" type="image/png">
+    <link rel="stylesheet" href="../style.css">
+
     <style>
-        body { max-width: 540px; margin: 0 auto; padding: 2em; background: #fafbfc; position:relative;}
-        .input-row { margin-bottom: 1.3em; }
-        label { font-weight: bold; display: block; margin-bottom: 0.5em; }
-        input[type=text], select { width: 100%; padding: 0.6em; border: 1px solid #ccc; border-radius: 8px; font-size:1em;}
-        .main-btn { padding: 1em 2em; font-size: 1.15em; border-radius: 12px; cursor: pointer; border: none; background: #2266bb; color: white; width: 100%; margin: 1.2em 0 0.7em 0; }
-        .main-btn[disabled] { opacity: 0.7; }
-        .amazon-btn, .thrift-btn {
-            border-radius: 9px; font-size: 1.09em; font-weight: 500; border: none; padding: 0.7em 1.3em; display: flex; align-items: center; gap:0.4em; cursor:pointer;
-            margin: 0 0.7em 0 0;
+        body { 
+            max-width: 540px; 
+            margin: 0 auto; 
+            padding: 2em; 
+            background: #fafbfc; 
+            position: relative;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
         }
-        .amazon-btn { background: #ff9900; color: #fff; }
-        .amazon-btn:hover { background: #ffad32; }
-        .thrift-btn { background: #2ecc40; color: #fff; }
-        .thrift-btn:hover { background: #47e86a; }
-        .buy-btn-row { display: flex; gap:0.6em; margin: 1em 0 0.7em 0; justify-content: flex-start;}
-        .spinner { display:inline-block; width: 1.5em; height: 1.5em; border: 2px solid #fff; border-top: 2px solid #2266bb; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        .powered { font-size: 0.9em; color: #aaa; margin-top: 2em; text-align: right; }
-        .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5em; }
-        #lang-menu { position: static; }
-        #lang-btn { cursor: pointer; font-size: 2em; }
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 0em;
+            min-height: 66px;
+        }
+        #lang-menu {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 5;
+        }
+        .untilnow-logo {
+            max-height: 50px;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+            filter: drop-shadow(0 2px 12px #0005);
+        }
+        .main-btn-row { 
+            display: flex; 
+            flex-direction: row;
+            gap: 0.7em; 
+            margin-bottom: 2em; 
+            flex-wrap: wrap;
+        }
+        .main-btn { 
+            padding: 1em 2em; 
+            font-size: 1.5em; 
+            border-radius: 12px; 
+            margin: 0; 
+            cursor: pointer; 
+            border: none; 
+            width: 46%; 
+            min-width: 140px; 
+            box-sizing: border-box;
+            background: #eef1f5;
+            transition: background 0.16s, box-shadow 0.16s;
+            box-shadow: 0 2px 10px #0001;
+        }
+        .main-btn:hover {
+            background: #d9e6f6;
+            box-shadow: 0 4px 18px #2266bb22;
+        }
+        .trending { margin-top: 1.5em; }
+        .trending-list { margin-bottom: 2em; }
+        .trending-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 1em; 
+            background: #eef1f5; 
+            border-radius: 8px; 
+            padding: 0.6em 1em; 
+            margin: 0.4em 0; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 1em; 
+        }
+        .cover-img { 
+            width: 48px; 
+            height: 70px; 
+            object-fit: cover; 
+            border-radius: 6px; 
+            box-shadow: 0 2px 6px #0001; 
+            background: #ddd; 
+        }
+        .powered { 
+            font-size: 0.9em; 
+            color: #aaa; 
+            margin-top: 3em; 
+            text-align: right; 
+        }
         #lang-modal-bg {
             display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.25); z-index:99; justify-content:center; align-items:center;
         }
         #lang-dropdown {
-            display: none; position:relative; min-width:220px; background: white; border: 1px solid #ddd; border-radius: 13px; box-shadow: 0 8px 24px #0001;
-            padding:0.7em 0; font-size:1.2em;
+            display: none; 
+            position:relative; 
+            min-width:220px; 
+            background: white; 
+            border: 1px solid #ddd; 
+            border-radius: 13px; 
+            box-shadow: 0 8px 24px #0001;
+            padding:0.7em 0; 
+            font-size:1.2em;
             animation:pop 0.14s cubic-bezier(.46,.53,.55,.96);
         }
-        #lang-dropdown div { padding: 0.7em 1.7em; cursor: pointer;}
+        #lang-dropdown div { 
+            padding: 0.7em 1.7em; 
+            cursor: pointer;
+        }
         #lang-dropdown div:hover { background: #eef3fa; }
-        #backBtn { font-size:2em; color:#2266bb; text-decoration:none; transition:color 0.2s;}
-        #backBtn:hover { color:#113366; }
+        @keyframes pop { 
+            0% { transform:scale(0.6); opacity:0.4 } 
+            100% { transform:scale(1); opacity:1; } 
+        }
+        .affiliate-footer-row {
+            display: flex;
+            gap: 0.8em;
+            margin-top: 2.5em;
+            margin-bottom: 0.1em;
+            width: 100%;
+        }
+        .affiliate-card {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #e5eaf4;
+            border-radius: 13px;
+            padding: 1.1em 0.5em 1.2em 0.5em;
+            text-align: center;
+            box-shadow: 0 2px 10px #2266bb12;
+            border: 1px solid #dbe3ec;
+            cursor: pointer;
+            transition: box-shadow 0.18s, background 0.18s;
+            min-width: 0;
+        }
+        .affiliate-card:hover { 
+            background: #d0e4fa; 
+            box-shadow: 0 4px 20px #2266bb24; 
+        }
+        .affiliate-label { 
+            font-size: 1.08em; 
+            font-weight: bold; 
+            margin-top: 0.5em;
+            color: #13356a;
+        }
+        .prime-logo {
+            height: 2em;
+            margin-bottom: 0.3em;
+        }
+        .amazon-logo {
+            height: 2em;
+            margin-bottom: 0.3em;
+        }
+        .thrift-logo {
+            height: 2.1em;
+            margin-bottom: 0.3em;
+        }
         @media (max-width: 600px) {
-            body { padding: 0.8em; }
-            .topbar { margin-bottom: 1em; }
-            .buy-btn-row { flex-direction: column; gap:0.7em; }
+            body { padding: 1em; }
+            .main-btn-row { 
+                flex-direction: row !important;
+                gap: 0.5em !important;
+                margin-bottom: 1em !important;
+                flex-wrap: nowrap !important;
+                justify-content: center;
+            }
+            .main-btn {
+                width: 46% !important;
+                min-width: 80px !important;
+                font-size: 1.12em !important;
+                padding: 0.7em 0.2em !important;
+                margin: 0 !important;
+            }
+            .affiliate-footer-row { flex-direction: column; gap: 0.9em; }
+            .untilnow-logo { max-width: 95vw; max-height: 48px; }
+            .header-row { min-height: 48px; }
+        }
+        @media (max-width: 420px) {
+            .main-btn {
+                font-size: 1em !important;
+                min-width: 50px !important;
+                padding: 0.6em 0.1em !important;
+            }
+            .main-btn-row { gap: 0.2em !important; }
         }
     </style>
 </head>
 <body>
-    <div class="topbar">
-        <a href="/static/index.html" id="backBtn" title="Retour">&#8592;</a>
+    <div class="header-row">
+        <img src="../untilnow-logo.png" alt="UntilNow Logo – Résumés sans spoilers" class="untilnow-logo">
         <div id="lang-menu">
             <span id="lang-btn">🌐</span>
         </div>
     </div>
     <div id="lang-modal-bg">
         <div id="lang-dropdown">
-            <div data-lang="de">🇩🇪 Deutsch</div>
-            <div data-lang="en">🇬🇧 English</div>
-            <div data-lang="es">🇪🇸 Español</div>
-            <div data-lang="fr">🇫🇷 Français</div>
+            <div onclick="goToLanguage('de')">🇩🇪 Deutsch</div>
+            <div onclick="goToLanguage('en')">🇬🇧 English</div>
+            <div onclick="goToLanguage('es')">🇪🇸 Español</div>
+            <div onclick="goToLanguage('fr')">🇫🇷 Français</div>
         </div>
     </div>
 
-    <h1 id="header">📚 Résumé de livre</h1>
-    <div class="input-row">
-        <label id="inputLabel" for="title">📖 <span id="inputPlaceholder">Entrez le titre du livre</span></label>
-        <input type="text" id="title" autocomplete="off">
-    </div>
-    <div class="input-row">
-        <label id="authorLabel" for="author">👤 <span id="authorPlaceholder">Auteur (optionnel)</span></label>
-        <input type="text" id="author" autocomplete="off">
-    </div>
-    <div class="input-row">
-        <label id="detailLabel">🔍 <span id="detailText">Niveau de détail</span></label>
-        <select id="detail">
-            <option value="grob">📝 <span id="shortText">Bref</span></option>
-            <option value="detailliert">📄 <span id="detailedText">Détaillé</span></option>
-        </select>
-    </div>
-    <div class="input-row">
-        <label id="typeLabel">📚 <span id="typeText">Chapitre, scène ou page</span></label>
-        <select id="unit">
-            <option value="Kapitel">Chapitre</option>
-            <option value="Szene">Scène</option>
-            <option value="Seite">Page</option>
-        </select>
-        <div id="unitHint" style="color:#666; font-size:0.98em; margin-top:0.3em;">Vous pouvez par exemple indiquer "Chapitre 1-3", "Scène A-B" ou "Page 10-20".</div>
-    </div>
-    <div class="input-row">
-        <label id="fromLabel" for="from">🔽 <span id="fromText">De</span></label>
-        <input type="text" id="from" placeholder="1 / A / Début">
-    </div>
-    <div class="input-row">
-        <label id="toLabel" for="to">🔼 <span id="toText">Jusqu’à</span></label>
-        <input type="text" id="to" placeholder="5 / B / Fin">
-    </div>
-    <div class="buy-btn-row" id="buyBtnRow">
-        <button class="amazon-btn" id="amazonBtn" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="height:1.1em;">
-            <span id="amazonBtnText">Acheter sur Amazon</span>
-        </button>
-        <button class="thrift-btn" id="thriftBtn" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_of_Thriftbooks.svg" alt="ThriftBooks" style="height:1.3em; margin-right: 0.1em;">
-            <span id="thriftBtnText">Acheter d'occasion</span>
-        </button>
+    <h1 id="mainTitle">📚🎬 Que cherchez-vous&nbsp;?</h1>
+    <div class="main-btn-row">
+        <button class="main-btn" id="movieBtn">🎬 Film/Série</button>
+        <button class="main-btn" id="bookBtn">📖 Livre</button>
     </div>
 
-    <button class="main-btn" id="summaryBtn"><span id="summarizeText">🧠 Créer résumé</span> <span id="summarizeSpinner" style="display:none;" class="spinner"></span></button>
-    <div id="noResult" style="color:#b22; margin-top:1em; display:none; font-weight:bold;"></div>
-    <div id="summarySection" style="margin-top:2em; display:none;">
-        <h2 id="summaryLabel">📝 Résumé</h2>
-        <div id="summaryTextResult"></div>
-        <button class="main-btn" id="ttsBtn" style="width:auto;"><span id="ttsText">🔊 Lecture audio</span> <span id="ttsSpinner" style="display:none;" class="spinner"></span></button>
+    <div class="trending">
+        <h2 id="trendingTitle">📈 Tendance actuelle</h2>
+        <div>
+            <div id="videosLabel" style="font-weight:bold; margin-bottom:0.4em;">🎬 Films et séries</div>
+            <div id="trendingVideos" class="trending-list"></div>
+        </div>
+        <div>
+            <div id="booksLabel" style="font-weight:bold; margin-bottom:0.4em;">📚 Livres</div>
+            <div id="trendingBooks" class="trending-list"></div>
+        </div>
     </div>
-    <div class="powered">📌 Propulsé par Gemini, Google Books & gTTS</div>
+
+    <div class="powered">📌 Propulsé par Gemini, TMDB & Google Books</div>
+
+    <!-- Affiliate Footer -->
+    <div class="affiliate-footer-row">
+        <div class="affiliate-card" onclick="window.open('https://www.amazon.de/prime?tag=DEIN_AFFILIATE_ID', '_blank')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_Logo.svg" class="prime-logo" alt="Prime Video – Publicité">
+            <div class="affiliate-label" id="primeLabel">Prime</div>
+        </div>
+        <div class="affiliate-card" onclick="window.open('https://www.amazon.de/?tag=DEIN_AFFILIATE_ID', '_blank')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="amazon-logo" alt="Amazon – Publicité">
+            <div class="affiliate-label" id="amazonLabel">Amazon</div>
+        </div>
+        <div class="affiliate-card" onclick="window.open('https://www.thriftbooks.com/?utm_source=affiliate&utm_medium=affiliate&utm_campaign=DEIN_AFFILIATE_ID', '_blank')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_of_Thriftbooks.svg" class="thrift-logo" alt="ThriftBooks – Publicité">
+            <div class="affiliate-label" id="thriftLabel">ThriftBooks</div>
+        </div>
+    </div>
 
     <script>
-        // Traductions
-        const texts = {
-            header: {
-                de: "📚 Buch-Zusammenfassung", en: "📚 Book Summary", es: "📚 Resumen de libro", fr: "📚 Résumé de livre"
-            },
-            input: {
-                de: "Buchtitel eingeben", en: "Enter book title", es: "Introduce el título del libro", fr: "Entrez le titre du livre"
-            },
-            author_label: {
-                de: "Autor (optional)", en: "Author (optional)", es: "Autor (opcional)", fr: "Auteur (optionnel)"
-            },
-            detail_label: {
-                de: "Detailgrad", en: "Level of detail", es: "Nivel de detalle", fr: "Niveau de détail"
-            },
-            short: {
-                de: "Kurz", en: "Brief", es: "Breve", fr: "Bref"
-            },
-            detailed: {
-                de: "Detailliert", en: "Detailed", es: "Detallado", fr: "Détaillé"
-            },
-            type: {
-                de: "Kapitel, Szene oder Seite", en: "Chapter, scene or page", es: "Capítulo, escena o página", fr: "Chapitre, scène ou page"
-            },
-            unit: {
-                de: {Kapitel:"Kapitel", Szene:"Szene", Seite:"Seite"},
-                en: {Kapitel:"Chapter", Szene:"Scene", Seite:"Page"},
-                es: {Kapitel:"Capítulo", Szene:"Escena", Seite:"Página"},
-                fr: {Kapitel:"Chapitre", Szene:"Scène", Seite:"Page"}
-            },
-            range_placeholder: {
-                de: {from: "1 / A / Anfang", to: "5 / B / Ende"},
-                en: {from: "1 / A / Start",  to: "5 / B / End"},
-                es: {from: "1 / A / Inicio", to: "5 / B / Final"},
-                fr: {from: "1 / A / Début",  to: "5 / B / Fin"}
-            },
-            from: {
-                de: "Von", en: "From", es: "Desde", fr: "De"
-            },
-            to: {
-                de: "Bis", en: "To", es: "Hasta", fr: "Jusqu’à"
-            },
-            summarize: {
-                de: "🧠 Zusammenfassung erstellen", en: "🧠 Create summary", es: "🧠 Crear resumen", fr: "🧠 Créer résumé"
-            },
-            summary: {
-                de: "📝 Zusammenfassung", en: "📝 Summary", es: "📝 Resumen", fr: "📝 Résumé"
-            },
-            read_aloud: {
-                de: "🔊 Vorlesen", en: "🔊 Read aloud", es: "🔊 Leer en voz alta", fr: "🔊 Lecture audio"
-            },
-            no_result: {
-                de: "🚫 Kein Buch gefunden", en: "🚫 Book not found", es: "🚫 Libro no encontrado", fr: "🚫 Livre introuvable"
-            },
-            hint: {
-                de: 'Du kannst z.B. "Kapitel 1-3", "Szene A-B" oder "Seite 10-20" angeben.',
-                en: 'You can e.g. enter "Chapter 1-3", "Scene A-B" or "Page 10-20".',
-                es: 'Puedes poner, por ejemplo, "Capítulo 1-3", "Escena A-B" o "Página 10-20".',
-                fr: 'Vous pouvez par exemple indiquer "Chapitre 1-3", "Scène A-B" ou "Page 10-20".'
-            },
-            amazon: {
-                de: "Bei Amazon kaufen", en: "Buy on Amazon", es: "Comprar en Amazon", fr: "Acheter sur Amazon"
-            },
-            thrift: {
-                de: "Gebraucht kaufen", en: "Buy used", es: "Comprar usado", fr: "Acheter d'occasion"
-            }
-        };
-
-        // Langue depuis l'URL ou session
-        let langFromPath = "de";
-        if (location.pathname.includes("/en/")) langFromPath = "en";
-        else if (location.pathname.includes("/es/")) langFromPath = "es";
-        else if (location.pathname.includes("/fr/")) langFromPath = "fr";
-
-        setLanguage(langFromPath);
-        sessionStorage.setItem('lang', langFromPath);
-        function setLanguage(lang) {
-            currentLang = lang;
-            sessionStorage.setItem('lang', lang);
-            document.title = texts.header[lang];
-            document.getElementById("header").innerText = texts.header[lang];
-            document.getElementById("inputLabel").innerText = "📖 " + texts.input[lang];
-            document.getElementById("authorLabel").innerText = "👤 " + texts.author_label[lang];
-            document.getElementById("detailLabel").innerText = "🔍 " + texts.detail_label[lang];
-            document.querySelector("#detail option[value='grob']").innerText = "📝 " + texts.short[lang];
-            document.querySelector("#detail option[value='detailliert']").innerText = "📄 " + texts.detailed[lang];
-            document.getElementById("typeLabel").innerText = "📚 " + texts.type[lang];
-
-            // Traduction des unités
-            let unitMap = texts.unit[lang];
-            let unitSelect = document.getElementById("unit");
-            unitSelect.querySelector("option[value='Kapitel']").innerText = unitMap.Kapitel;
-            unitSelect.querySelector("option[value='Szene']").innerText = unitMap.Szene;
-            unitSelect.querySelector("option[value='Seite']").innerText = unitMap.Seite;
-
-            document.getElementById("fromLabel").innerText = "🔽 " + texts.from[lang];
-            document.getElementById("toLabel").innerText = "🔼 " + texts.to[lang];
-
-            document.getElementById("from").placeholder = texts.range_placeholder[lang].from;
-            document.getElementById("to").placeholder = texts.range_placeholder[lang].to;
-
-            document.getElementById("summarizeText").innerText = texts.summarize[lang];
-            document.getElementById("summaryLabel").innerText = texts.summary[lang];
-            document.getElementById("ttsText").innerText = texts.read_aloud[lang];
-            document.getElementById("unitHint").innerText = texts.hint[lang];
-            document.getElementById("amazonBtnText").innerText = texts.amazon[lang];
-            document.getElementById("thriftBtnText").innerText = texts.thrift[lang];
+        function goToLanguage(lang) {
+            if (lang === 'de') window.location.href = "/index.html";
+            else window.location.href = "/" + lang + "/index.html";
         }
 
-        // Menu de sélection de langue
+        document.getElementById("movieBtn").onclick = () => {
+            sessionStorage.setItem("selected_type", "video");
+            sessionStorage.setItem("selected_query", "");
+            sessionStorage.setItem("lang", "fr");
+            window.location.href = "video.html";
+        };
+        document.getElementById("bookBtn").onclick = () => {
+            sessionStorage.setItem("selected_type", "book");
+            sessionStorage.setItem("selected_query", "");
+            sessionStorage.setItem("lang", "fr");
+            window.location.href = "book.html";
+        };
+
+        function fetchTrending() {
+            fetch(`/api/get_trending_movies_and_series?lang=fr`)
+                .then(r => r.json()).then(async videos => {
+                    let el = document.getElementById("trendingVideos");
+                    el.innerHTML = "";
+                    for (let title of videos) {
+                        let img = '';
+                        try {
+                            let r = await fetch(`/api/search_media?query=${encodeURIComponent(title)}&language=fr`);
+                            let res = await r.json();
+                            let item = res[0];
+                            if (item && item.poster_path) {
+                                img = `<img class="cover-img" src="https://image.tmdb.org/t/p/w200${item.poster_path}">`;
+                            } else {
+                                img = `<div class="cover-img" style="display:inline-flex;align-items:center;justify-content:center;color:#ccc;">🎬</div>`;
+                            }
+                        } catch (e) {
+                            img = `<div class="cover-img" style="display:inline-flex;align-items:center;justify-content:center;color:#ccc;">🎬</div>`;
+                        }
+                        let btn = document.createElement("button");
+                        btn.className = "trending-item";
+                        btn.innerHTML = img + `<span>${title}</span>`;
+                        btn.onclick = () => selectTrending("video", title);
+                        el.appendChild(btn);
+                    }
+                });
+            fetch(`/api/get_trending_books?lang=fr`)
+                .then(r => r.json()).then(books => {
+                    let el = document.getElementById("trendingBooks");
+                    el.innerHTML = "";
+                    books.forEach(book => {
+                        let btn = document.createElement("button");
+                        btn.className = "trending-item";
+                        btn.innerHTML = `<span>🔹</span><span>${book}</span>`;
+                        btn.onclick = () => selectTrending("book", book);
+                        el.appendChild(btn);
+                    });
+                });
+        }
+        fetchTrending();
+
+        function selectTrending(type, query) {
+            sessionStorage.setItem("selected_type", type);
+            sessionStorage.setItem("selected_query", query);
+            sessionStorage.setItem("lang", "fr");
+            if (type === "book") {
+                window.location.href = "book.html";
+            } else {
+                window.location.href = "video.html";
+            }
+        }
+
         document.getElementById('lang-btn').onclick = () => {
             let bg = document.getElementById('lang-modal-bg');
             let dd = document.getElementById('lang-dropdown');
             bg.style.display = 'flex';
             dd.style.display = 'block';
         };
-        document.querySelectorAll('#lang-dropdown div').forEach((el) => {
-            el.onclick = () => {
-                setLanguage(el.dataset.lang);
-                document.getElementById('lang-modal-bg').style.display = 'none';
-                document.getElementById('lang-dropdown').style.display = 'none';
-            }
-        });
         document.getElementById('lang-modal-bg').onclick = function(e){
-            if (e.target === this) { this.style.display = 'none'; document.getElementById('lang-dropdown').style.display = 'none'; }
-        };
-        setLanguage(currentLang);
-
-        // Liens d'affiliation
-        function makeAmazonUrl(title, author) {
-            let query = (title + (author ? " " + author : "")).replace(/ /g, "+");
-            return "https://www.amazon.de/s?k=" + encodeURIComponent(query);
-        }
-        function makeThriftUrl(title, author) {
-            let query = (title + (author ? " " + author : "")).replace(/ /g, "+");
-            return "https://www.thriftbooks.com/browse/?b.search=" + encodeURIComponent(query);
-        }
-
-        function updateAffiliateLinks() {
-            let title = document.getElementById("title").value.trim();
-            let author = document.getElementById("author").value.trim();
-            document.getElementById("amazonBtn").onclick = () => {
-                window.open(makeAmazonUrl(title, author), "_blank");
-            };
-            document.getElementById("thriftBtn").onclick = () => {
-                window.open(makeThriftUrl(title, author), "_blank");
-            };
-        }
-        document.getElementById("title").addEventListener("input", updateAffiliateLinks);
-        document.getElementById("author").addEventListener("input", updateAffiliateLinks);
-        updateAffiliateLinks();
-
-        // Bouton résumé
-        document.getElementById("summaryBtn").onclick = async function() {
-            let title = document.getElementById("title").value.trim();
-            let author = document.getElementById("author").value.trim();
-            let detail = document.getElementById("detail").value;
-            let unit = document.getElementById("unit").value;
-            let custom_from = document.getElementById("from").value.trim();
-            let custom_to = document.getElementById("to").value.trim();
-
-            document.getElementById("summaryTextResult").innerText = "";
-            document.getElementById("summarySection").style.display = "none";
-            document.getElementById("ttsBtn").style.display = "none";
-            document.getElementById("noResult").style.display = "none";
-            document.getElementById("summarizeText").style.display = "none";
-            document.getElementById("summaryBtn").disabled = true;
-            document.getElementById("summarizeSpinner").style.display = "inline-block";
-
-            let promptReq = {
-                title,
-                author,
-                detail,
-                custom_from,
-                custom_to,
-                description: "",
-                lang: currentLang,
-                unit
-            };
-            let promptRes = await fetch('/api/build_book_prompt', {
-                method: "POST",
-                headers: {'Content-Type':'application/json'},
-                body: JSON.stringify(promptReq)
-            });
-            let promptData = await promptRes.json();
-
-            let sumRes = await fetch('/api/summarize_text', {
-                method: "POST",
-                headers: {'Content-Type':'application/json'},
-                body: JSON.stringify({prompt: promptData.prompt})
-            });
-            let sumData = await sumRes.json();
-
-            document.getElementById("summaryTextResult").innerText = sumData.summary || "";
-            document.getElementById("summarySection").style.display = "block";
-            document.getElementById("ttsBtn").style.display = "inline-block";
-            document.getElementById("summarizeSpinner").style.display = "none";
-            document.getElementById("summaryBtn").disabled = false;
-            document.getElementById("summarizeText").style.display = "inline";
-        };
-
-        // TTS
-        document.getElementById("ttsBtn").onclick = async function() {
-            let text = document.getElementById("summaryTextResult").innerText;
-            document.getElementById("ttsText").style.display = "none";
-            document.getElementById("ttsSpinner").style.display = "inline-block";
-            this.disabled = true;
-
-            let res = await fetch('/api/generate_audio_file', {
-                method: "POST",
-                headers: {'Content-Type':'application/json'},
-                body: JSON.stringify({text, lang: currentLang})
-            });
-            let data = await res.json();
-            document.getElementById("ttsSpinner").style.display = "none";
-            document.getElementById("ttsText").style.display = "inline";
-            this.disabled = false;
-            if (data.audio_url) {
-                let player = document.createElement('audio');
-                player.src = data.audio_url;
-                player.controls = true;
-                player.autoplay = true;
-                player.style.marginTop = "1em";
-                document.getElementById("summaryTextResult").appendChild(player);
+            if (e.target === this) { 
+                this.style.display = 'none'; 
+                document.getElementById('lang-dropdown').style.display = 'none'; 
             }
         };
-
-        // Pré-remplir les champs
-        window.onload = () => {
-            let query = sessionStorage.getItem("selected_query") || "";
-            if (query) document.getElementById("title").value = query;
-            sessionStorage.setItem("selected_query", "");
-            updateAffiliateLinks();
-        };
-
-        document.querySelectorAll('#lang-dropdown div').forEach((el) => {
-            el.onclick = () => {
-                let lang = el.dataset.lang;
-                let file = location.pathname.endsWith('video.html') ? 'video.html' : 'book.html';
-                let path = "/static/";
-                let langPath = (lang === "de") ? path : path + lang + "/";
-                window.location.href = langPath + file;
-            }
-        });
     </script>
 </body>
 </html>
