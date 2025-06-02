@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>UntilNow – Resúmenes individuales de libros, series y películas (sin spoilers)</title>
-    <meta name="description" content="Con UntilNow obtienes resúmenes individuales y sin spoilers de libros, series y películas. Elige desde dónde y hasta dónde – perfecto para retomar rápidamente.">
-    <meta name="keywords" content="Resumen, resumen de libro, resumen de serie, resumen de película, sin spoilers, individual, capítulo, escena, página, hasta dónde, Without Spoilers, UntilNow">
+    <!-- SEO: Título y Descripción -->
+    <title>UntilNow – Resúmenes de libros, series y películas (sin spoilers)</title>
+    <meta name="description" content="Con UntilNow obtienes resúmenes personalizados y sin spoilers para libros, series y películas. Elige el punto de inicio y final – perfecto para retomar rápido.">
+    <meta name="keywords" content="resumen, resumen de libro, resumen de serie, resumen de película, sin spoilers, personalizado, capítulos, escenas, páginas, until now, UntilNow">
 
     <!-- OpenGraph & Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
-    <meta property="og:title" content="UntilNow – Resúmenes individuales sin spoilers">
-    <meta property="og:description" content="Resúmenes individuales para libros, series y películas – tú decides el rango, sin spoilers. Rápido, gratis, para todos los medios.">
+    <meta property="og:title" content="UntilNow – Resúmenes personalizados sin spoilers">
+    <meta property="og:description" content="Resúmenes personalizados para libros, series y películas – tú eliges hasta dónde. Rápido, gratis, para todos los medios.">
     <meta property="og:url" content="https://untilnow.xyz/es/">
     <meta property="og:image" content="https://untilnow.xyz/untilnow-banner.png">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UntilNow – Resúmenes individuales de libros, series y películas">
-    <meta name="twitter:description" content="¡Decide tú mismo de dónde a dónde se resume – sin spoilers!">
+    <meta name="twitter:title" content="UntilNow – Resúmenes de libros, series y películas">
+    <meta name="twitter:description" content="¡Tú eliges hasta dónde resumir – sin spoilers!">
 
     <!-- Canonical & hreflang -->
     <link rel="canonical" href="https://untilnow.xyz/es/">
@@ -29,8 +30,8 @@
     <link rel="alternate" hreflang="fr" href="https://untilnow.xyz/fr/" />
 
     <!-- Favicon & CSS -->
-    <link rel="icon" href="faviUntilNow.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../faviUntilNow.png" type="image/png">
+    <link rel="stylesheet" href="../style.css">
 
     <style>
         body { 
@@ -219,17 +220,17 @@
 </head>
 <body>
     <div class="header-row">
-        <img src="untilnow-logo.png" alt="UntilNow Logo – Resúmenes sin spoilers" class="untilnow-logo">
+        <img src="../untilnow-logo.png" alt="UntilNow Logo – Resúmenes sin spoilers" class="untilnow-logo">
         <div id="lang-menu">
             <span id="lang-btn">🌐</span>
         </div>
     </div>
     <div id="lang-modal-bg">
         <div id="lang-dropdown">
-            <div data-lang="de">🇩🇪 Deutsch</div>
-            <div data-lang="en">🇬🇧 English</div>
-            <div data-lang="es">🇪🇸 Español</div>
-            <div data-lang="fr">🇫🇷 Français</div>
+            <div onclick="goToLanguage('de')">🇩🇪 Deutsch</div>
+            <div onclick="goToLanguage('en')">🇬🇧 English</div>
+            <div onclick="goToLanguage('es')">🇪🇸 Español</div>
+            <div onclick="goToLanguage('fr')">🇫🇷 Français</div>
         </div>
     </div>
 
@@ -242,11 +243,11 @@
     <div class="trending">
         <h2 id="trendingTitle">📈 Populares ahora</h2>
         <div>
-            <div id="videosLabel" style="font-weight:bold; margin-bottom:0.4em;"></div>
+            <div id="videosLabel" style="font-weight:bold; margin-bottom:0.4em;">🎬 Películas y series</div>
             <div id="trendingVideos" class="trending-list"></div>
         </div>
         <div>
-            <div id="booksLabel" style="font-weight:bold; margin-bottom:0.4em;"></div>
+            <div id="booksLabel" style="font-weight:bold; margin-bottom:0.4em;">📚 Libros</div>
             <div id="trendingBooks" class="trending-list"></div>
         </div>
     </div>
@@ -270,97 +271,33 @@
     </div>
 
     <script>
-        // Traducciones
-        const texts = {
-            title: {
-                de: "📚🎬 Was suchst du?",
-                en: "📚🎬 What are you looking for?",
-                es: "📚🎬 ¿Qué buscas?",
-                fr: "📚🎬 Que cherchez-vous ?"
-            },
-            book: {
-                de: "📖 Buch",
-                en: "📖 Book",
-                es: "📖 Libro",
-                fr: "📖 Livre"
-            },
-            movie: {
-                de: "🎬 Film/Serie",
-                en: "🎬 Movie/Series",
-                es: "🎬 Película/Serie",
-                fr: "🎬 Film/Série"
-            },
-            trending: {
-                de: "📈 Aktuell beliebt",
-                en: "📈 Trending Now",
-                es: "📈 Populares ahora",
-                fr: "📈 Tendance actuelle"
-            },
-            books: {
-                de: "📚 Bücher",
-                en: "📚 Books",
-                es: "📚 Libros",
-                fr: "📚 Livres"
-            },
-            videos: {
-                de: "🎬 Filme & Serien",
-                en: "🎬 Movies & Series",
-                es: "🎬 Películas y series",
-                fr: "🎬 Films et séries"
-            }
-        };
-
-        // Idioma actual
-        let currentLang = sessionStorage.getItem('lang') || "es";
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            sessionStorage.setItem('lang', lang);
-            document.getElementById("mainTitle").innerText = texts.title[lang];
-            document.getElementById("bookBtn").innerText = texts.book[lang];
-            document.getElementById("movieBtn").innerText = texts.movie[lang];
-            document.getElementById("trendingTitle").innerText = texts.trending[lang];
-            document.getElementById("booksLabel").innerText = texts.books[lang];
-            document.getElementById("videosLabel").innerText = texts.videos[lang];
-            fetchTrending();
+        function goToLanguage(lang) {
+            if (lang === 'de') window.location.href = "/index.html";
+            else window.location.href = "/" + lang + "/index.html";
         }
 
-        // Menú de idioma como modal
-        document.getElementById('lang-btn').onclick = () => {
-            let bg = document.getElementById('lang-modal-bg');
-            let dd = document.getElementById('lang-dropdown');
-            bg.style.display = 'flex';
-            dd.style.display = 'block';
+        document.getElementById("movieBtn").onclick = () => {
+            sessionStorage.setItem("selected_type", "video");
+            sessionStorage.setItem("selected_query", "");
+            sessionStorage.setItem("lang", "es");
+            window.location.href = "video.html";
         };
-        document.querySelectorAll('#lang-dropdown div').forEach((el) => {
-            el.onclick = () => {
-                let lang = el.dataset.lang;
-                // Redirigir al index adecuado
-                if (lang === 'de') {
-                    window.location.href = '/';
-                } else {
-                    window.location.href = '/' + lang + '/';
-                }
-            }
-        });
-        document.getElementById('lang-modal-bg').onclick = function(e){
-            if (e.target === this) { 
-                this.style.display = 'none'; 
-                document.getElementById('lang-dropdown').style.display = 'none'; 
-            }
+        document.getElementById("bookBtn").onclick = () => {
+            sessionStorage.setItem("selected_type", "book");
+            sessionStorage.setItem("selected_query", "");
+            sessionStorage.setItem("lang", "es");
+            window.location.href = "book.html";
         };
 
-        // Cargar tendencias con portadas
         function fetchTrending() {
-            // Películas/series
-            fetch(`/api/get_trending_movies_and_series?lang=${currentLang}`)
+            fetch(`/api/get_trending_movies_and_series?lang=es`)
                 .then(r => r.json()).then(async videos => {
                     let el = document.getElementById("trendingVideos");
                     el.innerHTML = "";
                     for (let title of videos) {
                         let img = '';
                         try {
-                            let r = await fetch(`/api/search_media?query=${encodeURIComponent(title)}&language=${currentLang}`);
+                            let r = await fetch(`/api/search_media?query=${encodeURIComponent(title)}&language=es`);
                             let res = await r.json();
                             let item = res[0];
                             if (item && item.poster_path) {
@@ -378,8 +315,7 @@
                         el.appendChild(btn);
                     }
                 });
-            // Libros
-            fetch(`/api/get_trending_books?lang=${currentLang}`)
+            fetch(`/api/get_trending_books?lang=es`)
                 .then(r => r.json()).then(books => {
                     let el = document.getElementById("trendingBooks");
                     el.innerHTML = "";
@@ -392,11 +328,12 @@
                     });
                 });
         }
+        fetchTrending();
 
         function selectTrending(type, query) {
             sessionStorage.setItem("selected_type", type);
             sessionStorage.setItem("selected_query", query);
-            sessionStorage.setItem("lang", currentLang);
+            sessionStorage.setItem("lang", "es");
             if (type === "book") {
                 window.location.href = "book.html";
             } else {
@@ -404,21 +341,18 @@
             }
         }
 
-        document.getElementById("movieBtn").onclick = () => {
-            sessionStorage.setItem("selected_type", "video");
-            sessionStorage.setItem("selected_query", "");
-            sessionStorage.setItem("lang", currentLang);
-            window.location.href = "video.html";
+        document.getElementById('lang-btn').onclick = () => {
+            let bg = document.getElementById('lang-modal-bg');
+            let dd = document.getElementById('lang-dropdown');
+            bg.style.display = 'flex';
+            dd.style.display = 'block';
         };
-        document.getElementById("bookBtn").onclick = () => {
-            sessionStorage.setItem("selected_type", "book");
-            sessionStorage.setItem("selected_query", "");
-            sessionStorage.setItem("lang", currentLang);
-            window.location.href = "book.html";
+        document.getElementById('lang-modal-bg').onclick = function(e){
+            if (e.target === this) { 
+                this.style.display = 'none'; 
+                document.getElementById('lang-dropdown').style.display = 'none'; 
+            }
         };
-
-        setLanguage(currentLang);
     </script>
 </body>
 </html>
-
