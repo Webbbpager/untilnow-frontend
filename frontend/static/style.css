@@ -26,7 +26,7 @@ h1, h2, h3 {
 /* Buttons */
 .main-btn-row {
     display: flex;
-    gap: 1em;
+    gap: 3em;
     margin-bottom: 1em;
     flex-wrap: wrap;
     justify-content: center;
