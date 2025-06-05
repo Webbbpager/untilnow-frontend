@@ -589,13 +589,13 @@
                 overview: info.overview || "",
                 lang: currentLang
             };
-            let promptRes = await fetch('/api/build_movie_prompt', {
+            let promptRes = await fetch(https://untilnow-backend.onrender.com/api/build_movie_prompt', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(promptReq)
             });
             let promptData = await promptRes.json();
-            let sumRes = await fetch('/api/summarize_text', {
+            let sumRes = await fetch(https://untilnow-backend.onrender.com/api/summarize_text', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({prompt: promptData.prompt})
@@ -638,13 +638,13 @@
                 episodes_summary: episodes_text,
                 lang: currentLang
             };
-            let promptRes = await fetch('/api/build_tv_prompt', {
+            let promptRes = await fetch(https://untilnow-backend.onrender.com/api/build_tv_prompt', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(promptReq)
             });
             let promptData = await promptRes.json();
-            let sumRes = await fetch('/api/summarize_text', {
+            let sumRes = await fetch(https://untilnow-backend.onrender.com/api/summarize_text', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({prompt: promptData.prompt})
@@ -663,7 +663,7 @@
             document.getElementById("ttsText").style.display = "none";
             document.getElementById("ttsSpinner").style.display = "inline-block";
             this.disabled = true;
-            let res = await fetch('/api/generate_audio_file', {
+            let res = await fetch(https://untilnow-backend.onrender.com/api/generate_audio_file', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({text, lang: currentLang})
