@@ -188,10 +188,10 @@ label {
 
 /* Film/Serie-Button rot umrandet */
 #movieBtn {
-    border: 3px solid #e84545 !important;   /* Kräftiges Rot */
+    border: 1.4px solid #e84545 !important;   /* Kräftiges Rot */
 }
 
 /* Buch-Button blau umrandet */
 #bookBtn {
-    border: 3px solid #3b74d7 !important;   /* Kräftiges Blau */
+    border: 1.4px solid #3b74d7 !important;   /* Kräftiges Blau */
 }
