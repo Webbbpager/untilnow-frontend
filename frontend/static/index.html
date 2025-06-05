@@ -351,14 +351,14 @@
         // Trending laden & mit Coverbildern
         function fetchTrending() {
             // Videos mit TMDB-Cover (jetzt zuerst)
-            fetch('https://untilnow-backend.onrender.com/api/get_trending_movies_and_series?lang=${currentLang}')
+            fetch(`https://untilnow-backend.onrender.com/api/get_trending_movies_and_series?lang=${currentLang}`)
                 .then(r => r.json()).then(async videos => {
                     let el = document.getElementById("trendingVideos");
                     el.innerHTML = "";
                     for (let title of videos) {
                         let img = '';
                         try {
-                            let r = await fetch('https://untilnow-backend.onrender.com/api/search_media?query=${encodeURIComponent(title)}&language=${currentLang}');
+                            let r = await fetch(`https://untilnow-backend.onrender.com/api/search_media?query=${encodeURIComponent(title)}&language=${currentLang}`);
                             let res = await r.json();
                             let item = res[0];
                             if (item && item.poster_path) {
@@ -377,7 +377,7 @@
                     }
                 });
             // Bücher (jetzt unten)
-            fetch('https://untilnow-backend.onrender.com/api/get_trending_books?lang=${currentLang}')
+            fetch(`https://untilnow-backend.onrender.com/api/get_trending_books?lang=${currentLang}`)
                 .then(r => r.json()).then(books => {
                     let el = document.getElementById("trendingBooks");
                     el.innerHTML = "";
