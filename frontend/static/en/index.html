@@ -294,14 +294,14 @@
 
         // Trending
         function fetchTrending() {
-            fetch(`/api/get_trending_movies_and_series?lang=en`)
+            fetch(https://untilnow-backend.onrender.com/api/get_trending_movies_and_series?lang=en`)
                 .then(r => r.json()).then(async videos => {
                     let el = document.getElementById("trendingVideos");
                     el.innerHTML = "";
                     for (let title of videos) {
                         let img = '';
                         try {
-                            let r = await fetch(`/api/search_media?query=${encodeURIComponent(title)}&language=en`);
+                            let r = await fetch(https://untilnow-backend.onrender.com/api/search_media?query=${encodeURIComponent(title)}&language=en`);
                             let res = await r.json();
                             let item = res[0];
                             if (item && item.poster_path) {
@@ -319,7 +319,7 @@
                         el.appendChild(btn);
                     }
                 });
-            fetch(`/api/get_trending_books?lang=en`)
+            fetch(https://untilnow-backend.onrender.com/api/get_trending_books?lang=en`)
                 .then(r => r.json()).then(books => {
                     let el = document.getElementById("trendingBooks");
                     el.innerHTML = "";
