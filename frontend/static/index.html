@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>UntilNow – Individuelle Zusammenfassungen für Bücher, Serien & Filme (ohne Spoiler)</title>
     <meta name="description" content="Mit UntilNow erhältst du individuelle, spoilerfreie Zusammenfassungen für Bücher, Serien und Filme. Wähle selbst von wo bis wo – perfekt, um schnell wieder einzusteigen.">
     <meta name="keywords" content="Zusammenfassung, Buch Zusammenfassung, Serie Zusammenfassung, Film Zusammenfassung, spoilerfrei, individuell, Kapitel, Szene, Seite, bis wohin, Without Spoilers, UntilNow">
-
     <!-- OpenGraph & Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
@@ -15,25 +13,20 @@
     <meta property="og:description" content="Individuelle Zusammenfassungen für Bücher, Serien & Filme – von dir bestimmt, ohne Spoiler. Schnell, kostenlos, für alle Medien.">
     <meta property="og:url" content="https://untilnow.xyz/">
     <meta property="og:image" content="https://untilnow.xyz/untilnow-banner.png">
-
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="UntilNow – Individuelle Zusammenfassungen für Bücher, Serien & Filme">
     <meta name="twitter:description" content="Bestimme selbst, von wo bis wo zusammengefasst wird – ohne Spoiler!">
-
     <!-- Canonical & hreflang -->
     <link rel="canonical" href="https://untilnow.xyz/">
     <link rel="alternate" hreflang="de" href="https://untilnow.xyz/" />
     <link rel="alternate" hreflang="en" href="https://untilnow.xyz/en/" />
     <link rel="alternate" hreflang="es" href="https://untilnow.xyz/es/" />
     <link rel="alternate" hreflang="fr" href="https://untilnow.xyz/fr/" />
-
     <!-- Favicon & CSS -->
     <link rel="icon" href="faviUntilNow.png" type="image/png">
     <link rel="stylesheet" href="style.css">
-
     <style>
-        /* Dein vorhandenes Style bleibt unverändert */
         body { 
             max-width: 540px; 
             margin: 0 auto; 
@@ -188,7 +181,6 @@
             height: 2.1em;
             margin-bottom: 0.3em;
         }
-        /* --- MOBILE: Buttons bleiben nebeneinander, werden kompakter --- */
         @media (max-width: 600px) {
             body { padding: 1em; }
             .main-btn-row { 
@@ -228,10 +220,10 @@
     </div>
     <div id="lang-modal-bg">
         <div id="lang-dropdown">
-            <div data-lang="de">🇩🇪 Deutsch</div>
-            <div data-lang="en">🇬🇧 English</div>
-            <div data-lang="es">🇪🇸 Español</div>
-            <div data-lang="fr">🇫🇷 Français</div>
+            <div onclick="goToLanguage('de')">🇩🇪 Deutsch</div>
+            <div onclick="goToLanguage('en')">🇬🇧 English</div>
+            <div onclick="goToLanguage('es')">🇪🇸 Español</div>
+            <div onclick="goToLanguage('fr')">🇫🇷 Français</div>
         </div>
     </div>
 
@@ -244,11 +236,11 @@
     <div class="trending">
         <h2 id="trendingTitle">📈 Aktuell beliebt</h2>
         <div>
-            <div id="videosLabel" style="font-weight:bold; margin-bottom:0.4em;"></div>
+            <div id="videosLabel" style="font-weight:bold; margin-bottom:0.4em;">🎬 Filme & Serien</div>
             <div id="trendingVideos" class="trending-list"></div>
         </div>
         <div>
-            <div id="booksLabel" style="font-weight:bold; margin-bottom:0.4em;"></div>
+            <div id="booksLabel" style="font-weight:bold; margin-bottom:0.4em;">📚 Bücher</div>
             <div id="trendingBooks" class="trending-list"></div>
         </div>
     </div>
@@ -272,129 +264,69 @@
     </div>
 
     <script>
-        // Übersetzungen
-        const texts = {
-            title: {
-                de: "📚🎬 Was suchst du?",
-                en: "📚🎬 What are you looking for?",
-                es: "📚🎬 ¿Qué buscas?",
-                fr: "📚🎬 Que cherchez-vous ?"
-            },
-            book: {
-                de: "📖 Buch",
-                en: "📖 Book",
-                es: "📖 Libro",
-                fr: "📖 Livre"
-            },
-            movie: {
-                de: "🎬 Film/Serie",
-                en: "🎬 Movie/Series",
-                es: "🎬 Película/Serie",
-                fr: "🎬 Film/Série"
-            },
-            trending: {
-                de: "📈 Aktuell beliebt",
-                en: "📈 Trending Now",
-                es: "📈 Populares ahora",
-                fr: "📈 Tendance actuelle"
-            },
-            books: {
-                de: "📚 Bücher",
-                en: "📚 Books",
-                es: "📚 Libros",
-                fr: "📚 Livres"
-            },
-            videos: {
-                de: "🎬 Filme & Serien",
-                en: "🎬 Movies & Series",
-                es: "🎬 Películas y series",
-                fr: "🎬 Films et séries"
-            }
-        };
-
-        // Sprache aus Session oder Default
-        let currentLang = sessionStorage.getItem('lang') || "de";
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            sessionStorage.setItem('lang', lang);
-            document.getElementById("mainTitle").innerText = texts.title[lang];
-            document.getElementById("bookBtn").innerText = texts.book[lang];
-            document.getElementById("movieBtn").innerText = texts.movie[lang];
-            document.getElementById("trendingTitle").innerText = texts.trending[lang];
-            document.getElementById("booksLabel").innerText = texts.books[lang];
-            document.getElementById("videosLabel").innerText = texts.videos[lang];
-            fetchTrending();
+        function goToLanguage(lang) {
+            if (lang === 'de') window.location.href = "/index.html";
+            else window.location.href = "/" + lang + "/index.html";
         }
 
-        // Sprachmenü als mittiges Modal
-        document.getElementById('lang-btn').onclick = () => {
-            let bg = document.getElementById('lang-modal-bg');
-            let dd = document.getElementById('lang-dropdown');
-            bg.style.display = 'flex';
-            dd.style.display = 'block';
+        document.getElementById("movieBtn").onclick = () => {
+            sessionStorage.setItem("selected_type", "video");
+            sessionStorage.setItem("selected_query", "");
+            sessionStorage.setItem("lang", "de");
+            window.location.href = "video.html";
         };
-        document.querySelectorAll('#lang-dropdown div').forEach((el) => {
-            el.onclick = () => {
-                setLanguage(el.dataset.lang);
-                document.getElementById('lang-modal-bg').style.display = 'none';
-                document.getElementById('lang-dropdown').style.display = 'none';
-            }
-        });
-        document.getElementById('lang-modal-bg').onclick = function(e){
-            if (e.target === this) { 
-                this.style.display = 'none'; 
-                document.getElementById('lang-dropdown').style.display = 'none'; 
-            }
+        document.getElementById("bookBtn").onclick = () => {
+            sessionStorage.setItem("selected_type", "book");
+            sessionStorage.setItem("selected_query", "");
+            sessionStorage.setItem("lang", "de");
+            window.location.href = "book.html";
         };
 
-        // Trending laden & mit Coverbildern
         function fetchTrending() {
-            // Videos mit TMDB-Cover (jetzt zuerst)
-            fetch(`https://untilnow-backend.onrender.com/api/get_trending_movies_and_series?lang=${currentLang}`)
+            fetch(`https://untilnow-backend.onrender.com/api/get_trending_movies_and_series?lang=de`)
                 .then(r => r.json()).then(async videos => {
                     let el = document.getElementById("trendingVideos");
                     el.innerHTML = "";
                     for (let title of videos) {
                         let img = '';
                         try {
-                            let r = await fetch(`https://untilnow-backend.onrender.com/api/search_media?query=${encodeURIComponent(title)}&language=${currentLang}`);
+                            let r = await fetch(`https://untilnow-backend.onrender.com/api/search_media?query=${encodeURIComponent(title)}&language=de`);
                             let res = await r.json();
                             let item = res[0];
                             if (item && item.poster_path) {
-                                img = <img class="cover-img" src="https://image.tmdb.org/t/p/w200${item.poster_path}">;
+                                img = `<img class="cover-img" src="https://image.tmdb.org/t/p/w200${item.poster_path}">`;
                             } else {
-                                img = <div class="cover-img" style="display:inline-flex;align-items:center;justify-content:center;color:#ccc;">🎬</div>;
+                                img = `<div class="cover-img" style="display:inline-flex;align-items:center;justify-content:center;color:#ccc;">🎬</div>`;
                             }
                         } catch (e) {
-                            img = <div class="cover-img" style="display:inline-flex;align-items:center;justify-content:center;color:#ccc;">🎬</div>;
+                            img = `<div class="cover-img" style="display:inline-flex;align-items:center;justify-content:center;color:#ccc;">🎬</div>`;
                         }
                         let btn = document.createElement("button");
                         btn.className = "trending-item";
-                        btn.innerHTML = img + <span>${title}</span>;
+                        btn.innerHTML = img + `<span>${title}</span>`;
                         btn.onclick = () => selectTrending("video", title);
                         el.appendChild(btn);
                     }
                 });
-            // Bücher (jetzt unten)
-            fetch(`https://untilnow-backend.onrender.com/api/get_trending_books?lang=${currentLang}`)
+            fetch(`https://untilnow-backend.onrender.com/api/get_trending_books?lang=de`)
                 .then(r => r.json()).then(books => {
                     let el = document.getElementById("trendingBooks");
                     el.innerHTML = "";
                     books.forEach(book => {
                         let btn = document.createElement("button");
                         btn.className = "trending-item";
-                        btn.innerHTML = <span>🔹</span><span>${book}</span>;
+                        btn.innerHTML = `<span>🔹</span><span>${book}</span>`;
                         btn.onclick = () => selectTrending("book", book);
                         el.appendChild(btn);
                     });
                 });
         }
+        fetchTrending();
 
         function selectTrending(type, query) {
             sessionStorage.setItem("selected_type", type);
             sessionStorage.setItem("selected_query", query);
-            sessionStorage.setItem("lang", currentLang);
+            sessionStorage.setItem("lang", "de");
             if (type === "book") {
                 window.location.href = "book.html";
             } else {
@@ -402,20 +334,18 @@
             }
         }
 
-        document.getElementById("movieBtn").onclick = () => {
-            sessionStorage.setItem("selected_type", "video");
-            sessionStorage.setItem("selected_query", "");
-            sessionStorage.setItem("lang", currentLang);
-            window.location.href = "video.html";
+        document.getElementById('lang-btn').onclick = () => {
+            let bg = document.getElementById('lang-modal-bg');
+            let dd = document.getElementById('lang-dropdown');
+            bg.style.display = 'flex';
+            dd.style.display = 'block';
         };
-        document.getElementById("bookBtn").onclick = () => {
-            sessionStorage.setItem("selected_type", "book");
-            sessionStorage.setItem("selected_query", "");
-            sessionStorage.setItem("lang", currentLang);
-            window.location.href = "book.html";
+        document.getElementById('lang-modal-bg').onclick = function(e){
+            if (e.target === this) { 
+                this.style.display = 'none'; 
+                document.getElementById('lang-dropdown').style.display = 'none'; 
+            }
         };
-
-        setLanguage(currentLang);
     </script>
 </body>
 </html>
