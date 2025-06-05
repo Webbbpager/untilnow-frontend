@@ -186,12 +186,30 @@ label {
     /* main-btn-row und main-btn bereits oben angepasst */
 }
 
-/* Film/Serie-Button rot umrandet */
 #movieBtn {
-    border: 1.4px solid #e84545 !important;   /* Kräftiges Rot */
+    border: none;
+    box-shadow: 0 0 0 4px rgba(232,69,69,0.18), 0 4px 16px #0002;
+    background: linear-gradient(90deg, #fff 70%, #fdeaea 100%);
+    color: #d72929;
+    font-weight: bold;
 }
 
-/* Buch-Button blau umrandet */
+#movieBtn:hover {
+    box-shadow: 0 0 0 6px rgba(232,69,69,0.27), 0 8px 32px #0003;
+    background: linear-gradient(90deg, #fff 40%, #ffd1d1 100%);
+    color: #e84545;
+}
+
 #bookBtn {
-    border: 1.4px solid #3b74d7 !important;   /* Kräftiges Blau */
+    border: none;
+    box-shadow: 0 0 0 4px rgba(59,116,215,0.16), 0 4px 16px #0002;
+    background: linear-gradient(90deg, #fff 70%, #eaf1fd 100%);
+    color: #2350a8;
+    font-weight: bold;
+}
+
+#bookBtn:hover {
+    box-shadow: 0 0 0 6px rgba(59,116,215,0.27), 0 8px 32px #0003;
+    background: linear-gradient(90deg, #fff 40%, #cbe2ff 100%);
+    color: #3b74d7;
 }
