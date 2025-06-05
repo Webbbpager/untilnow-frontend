@@ -27,7 +27,7 @@ h1, h2, h3 {
 .main-btn-row {
     display: flex;
     gap: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     flex-wrap: wrap;
     justify-content: center;
 }
