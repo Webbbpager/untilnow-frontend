@@ -391,7 +391,7 @@
             document.getElementById("buyBtnRow").style.display = "none";
             if (query.length < 2) return;
             debounceTimer = setTimeout(async ()=>{
-                let res = await fetch(https://untilnow-backend.onrender.com/api/search_media?query=${encodeURIComponent(query)}&language=${currentLang}`);
+                let res = await fetch(`https://untilnow-backend.onrender.com/api/search_media?query=${encodeURIComponent(query)}&language=${currentLang}`);
                 let arr = await res.json();
                 lastResults = arr.filter(r => r.media_type === "movie" || r.media_type === "tv");
                 let ac = document.getElementById("autocomplete");
@@ -466,7 +466,7 @@
 
             if (selectedItem.media_type === "movie") {
                 document.getElementById("filmSliderSection").style.display = "block";
-                let details = await fetch(https://untilnow-backend.onrender.com/api/get_movie_details?movie_id=${selectedItem.id}`);
+                let details = await fetch(`https://untilnow-backend.onrender.com/api/get_movie_details?movie_id=${selectedItem.id}`);
                 let info = await details.json();
                 let runtime = info.runtime || 120;
                 resetDoubleSlider(runtime);
@@ -474,7 +474,7 @@
                 episodesCache = {}; allEpisodesFlat = [];
                 let maxSeason = 0;
                 for (let s = 1; s <= 20; ++s) {
-                    let r = await fetch(https://untilnow-backend.onrender.com/api/get_episodes?tv_id=${selectedItem.id}&season=${s}`);
+                    let r = await fetch(`https://untilnow-backend.onrender.com/api/get_episodes?tv_id=${selectedItem.id}&season=${s}`);
                     let eps = await r.json();
                     if (!eps || !eps.length) break;
                     episodesCache[s] = eps;
@@ -583,7 +583,7 @@
             let from = document.getElementById("slider-1").value;
             let to = document.getElementById("slider-2").value;
             let scene = document.getElementById("filmSceneInput").value.trim();
-            let details = await fetch(https://untilnow-backend.onrender.com/api/get_movie_details?movie_id=${selectedItem.id}`);
+            let details = await fetch(`https://untilnow-backend.onrender.com/api/get_movie_details?movie_id=${selectedItem.id}`);
             let info = await details.json();
             let promptReq = {
                 title: info.title || "",
@@ -595,13 +595,13 @@
                 overview: info.overview || "",
                 lang: currentLang
             };
-            let promptRes = await fetch(https://untilnow-backend.onrender.com/api/build_movie_prompt', {
+            let promptRes = await fetch('https://untilnow-backend.onrender.com/api/build_movie_prompt', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(promptReq)
             });
             let promptData = await promptRes.json();
-            let sumRes = await fetch(https://untilnow-backend.onrender.com/api/summarize_text', {
+            let sumRes = await fetch('https://untilnow-backend.onrender.com/api/summarize_text', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({prompt: promptData.prompt})
@@ -644,13 +644,13 @@
                 episodes_summary: episodes_text,
                 lang: currentLang
             };
-            let promptRes = await fetch(https://untilnow-backend.onrender.com/api/build_tv_prompt', {
+            let promptRes = await fetch('https://untilnow-backend.onrender.com/api/build_tv_prompt', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(promptReq)
             });
             let promptData = await promptRes.json();
-            let sumRes = await fetch(https://untilnow-backend.onrender.com/api/summarize_text', {
+            let sumRes = await fetch('https://untilnow-backend.onrender.com/api/summarize_text', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({prompt: promptData.prompt})
@@ -669,7 +669,7 @@
             document.getElementById("ttsText").style.display = "none";
             document.getElementById("ttsSpinner").style.display = "inline-block";
             this.disabled = true;
-            let res = await fetch(https://untilnow-backend.onrender.com/api/generate_audio_file', {
+            let res = await fetch('https://untilnow-backend.onrender.com/api/generate_audio_file', {
                 method: "POST",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({text, lang: currentLang})
