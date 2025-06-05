@@ -214,17 +214,5 @@ label {
     color: #3b74d7;
 }
 
-.main-btn-row {
-    display: flex;
-    gap: 2em;         /* Vorher z.B. 0.7em – jetzt mehr Abstand */
-    margin-bottom: 2em;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-@media (max-width: 600px) {
-    .main-btn-row {
-        flex-direction: column;
-        gap: 1.4em;   /* Auch mobil größerer Abstand */
-    }
-}
+
 
