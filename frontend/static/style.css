@@ -185,3 +185,13 @@ label {
     body { padding: 0.8em; }
     /* main-btn-row und main-btn bereits oben angepasst */
 }
+
+/* Film/Serie-Button rot umrandet */
+#movieBtn {
+    border: 3px solid #e84545 !important;   /* Kräftiges Rot */
+}
+
+/* Buch-Button blau umrandet */
+#bookBtn {
+    border: 3px solid #3b74d7 !important;   /* Kräftiges Blau */
+}
