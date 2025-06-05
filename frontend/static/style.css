@@ -214,5 +214,43 @@ label {
     color: #3b74d7;
 }
 
+/* ==== MAIN BUTTONS: Mehr Abstand mobil & korrektes Verhalten ==== */
+.main-btn-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2em;  /* Mehr Abstand zwischen den Buttons auf Mobil */
+    margin-bottom: 2em;
+    align-items: center;
+}
+
+.main-btn {
+    width: 100%;
+    max-width: 360px;
+    min-width: 180px;
+    min-height: 100px;
+    aspect-ratio: 3.5 / 2;
+    font-size: 2.1em;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+@media (min-width: 601px) {
+    .main-btn-row {
+        flex-direction: row;
+        gap: 2.2em;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .main-btn {
+        width: 46%;
+        max-width: 360px;
+        min-width: 180px;
+    }
+}
+
+/* Optional: Entferne jegliches margin an .main-btn, damit nur gap greift */
 
 
