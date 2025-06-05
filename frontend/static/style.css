@@ -24,6 +24,13 @@ h1, h2, h3 {
 }
 
 /* Buttons */
+.main-btn-row {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .main-btn, .trending-item, .ep-box, button {
     border-radius: 12px;
     border: none;
@@ -39,20 +46,43 @@ h1, h2, h3 {
     background: #dae3f1;
     box-shadow: 0 4px 16px #0001;
 }
+
+/* *** NEU: Responsive große Hauptbuttons im Verhältnis 3.5:2 *** */
 .main-btn {
-    padding: 1em 2em;
-    font-size: 1.5em;
-    margin: 1em 0.3em 1em 0;
-    width: 46%;
-    min-width: 160px;
+    width: 100%;
+    max-width: 360px; /* oder nach Wunsch anpassen */
+    aspect-ratio: 3.5 / 2;
+    font-size: 2.1em;
+    min-width: 180px;
+    min-height: 90px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.main-btn-row {
-    display: flex;
-    gap: 0.7em;
-    margin-bottom: 2em;
-    flex-wrap: wrap;
+@media (min-width: 520px) {
+    .main-btn-row {
+        flex-direction: row;
+        gap: 1em;
+    }
+    .main-btn {
+        width: 46%;
+        min-width: 180px;
+    }
 }
+
+@media (max-width: 519px) {
+    .main-btn-row {
+        flex-direction: column;
+        gap: 1em;
+    }
+    .main-btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
+/* *** ENDE NEU *** */
 
 /* Trending-Listen */
 .trending { margin-top: 1.5em; }
@@ -153,11 +183,5 @@ label {
 /* Responsive Design */
 @media (max-width: 600px) {
     body { padding: 0.8em; }
-    .main-btn-row { flex-direction: column; gap: 0.8em; }
-    .main-btn { width: 100%; min-width: unset;}
+    /* main-btn-row und main-btn bereits oben angepasst */
 }
-
-
-
-
-
